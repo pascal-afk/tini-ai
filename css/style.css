@@ -278,6 +278,20 @@ body {
     font-weight: 500;
 }
 
+.placeholder-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #FFF5E1 0%, #FFE4B5 100%);
+    border: 2px dashed var(--accent-color);
+}
+
 .video-actions {
     display: flex;
     gap: 1rem;
