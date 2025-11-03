@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hip-Hop Dance Trainer - Nadja | Beat-by-Beat Learning</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="/static/video-editor.css" rel="stylesheet">
+    <link href="/static/move-lyrics.css" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      }
+      
+      /* Tab System */
+      .tab-btn {
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+      }
+      
+      .tab-btn:hover {
+        background: rgba(102, 126, 234, 0.1);
+        border-color: #667eea;
+      }
+      
+      .tab-btn.active {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-color: #667eea;
+      }
+      
+      .tab-content {
+        display: none;
+      }
+      
+      .tab-content.active {
+        display: block;
+        animation: fadeIn 0.3s ease;
+      }
+      
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      
+      .beat-counter {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        border-radius: 50%;
+        margin: 0 4px;
+        font-weight: bold;
+        transition: all 0.1s ease;
+      }
+      
+      .beat-counter.active {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        transform: scale(1.2);
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+      }
+      
+      .beat-counter.inactive {
+        background: #f3f4f6;
+        color: #9ca3af;
+      }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 py-6">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h1 class="text-3xl font-bold text-gray-900">
+                        <i class="fas fa-music text-purple-600 mr-2"></i>
+                        Hip-Hop Dance Trainer
+                    </h1>
+                    <p class="text-gray-600 mt-1">Learn dance moves with Nadja - Beat by beat analysis</p>
+                </div>
+                <a href="https://instagram.com/tini.aii" target="_blank" class="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:shadow-lg transition">
+                    <i class="fab fa-instagram"></i>
+                    Follow @tini.aii
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 py-8">
+        <!-- Tab Navigation -->
+        <div class="bg-white rounded-xl shadow-lg p-4 mb-8">
+            <div class="flex flex-wrap gap-4 justify-center">
+                <button onclick="switchTab('player')" id="tab-player" class="tab-btn active">
+                    <i class="fas fa-play mr-2"></i>Video Player
+                </button>
+                <button onclick="switchTab('editor')" id="tab-editor" class="tab-btn">
+                    <i class="fas fa-cut mr-2"></i>Mobile Editor
+                </button>
+                <button onclick="switchTab('lyrics')" id="tab-lyrics" class="tab-btn">
+                    <i class="fas fa-music mr-2"></i>Move Lyrics
+                </button>
+                <button onclick="switchTab('demo')" id="tab-demo" class="tab-btn">
+                    <i class="fas fa-rocket mr-2"></i>Investor Demo
+                </button>
+            </div>
+        </div>
+        
+        <!-- Tab Content: Video Player -->
+        <div id="content-player" class="tab-content active">
+            <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                <h2 class="text-2xl font-bold mb-4">
+                    <i class="fas fa-play-circle mr-2 text-purple-600"></i>
+                    Basic Video Player
+                </h2>
+                <div class="video-container">
+                    <video id="danceVideo" class="w-full rounded-lg shadow-md" controls>
+                        <source src="" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    
+                    <div class="mt-6 text-center">
+                        <div class="inline-block bg-white rounded-full shadow-lg px-8 py-4">
+                            <div class="text-sm text-gray-500 mb-2">Bar <span id="currentBar">1</span> - 4/4 Time</div>
+                            <div id="beatCounter" class="flex justify-center">
+                                <div class="beat-counter inactive">1</div>
+                                <div class="beat-counter inactive">2</div>
+                                <div class="beat-counter inactive">3</div>
+                                <div class="beat-counter inactive">4</div>
+                                <div class="beat-counter inactive">5</div>
+                                <div class="beat-counter inactive">6</div>
+                                <div class="beat-counter inactive">7</div>
+                                <div class="beat-counter inactive">8</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="movesContainer" class="bg-white rounded-xl shadow-lg p-6">
+                <h3 class="text-xl font-bold mb-4">
+                    <i class="fas fa-list-ol mr-2 text-purple-600"></i>
+                    Move Breakdown
+                </h3>
+                <div class="text-center text-gray-500 py-8">
+                    Select a video to see moves
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tab Content: Mobile Editor -->
+        <div id="content-editor" class="tab-content">
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-2xl font-bold mb-4">
+                    <i class="fas fa-cut mr-2 text-purple-600"></i>
+                    Instagram-Style Mobile Editor
+                </h2>
+                <div id="editorContainer">
+                    <div class="text-center text-gray-500 py-12">
+                        <i class="fas fa-mobile-alt text-6xl mb-4"></i>
+                        <p class="text-xl">Mobile video editor interface</p>
+                        <p class="mt-2">Bar selection, speed control, and slow motion</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tab Content: Move Lyrics -->
+        <div id="content-lyrics" class="tab-content">
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-2xl font-bold mb-4">
+                    <i class="fas fa-music mr-2 text-purple-600"></i>
+                    Move Lyrics - Guitar Hero for Dance
+                </h2>
+                <div id="lyricsContainer" class="lyrics-display guitar-hero">
+                    <div class="text-center text-gray-500 py-12">
+                        <i class="fas fa-guitar text-6xl mb-4"></i>
+                        <p class="text-xl">Beat-synchronized dance instructions</p>
+                        <p class="mt-2">Scrolling lyrics like Guitar Hero + Karaoke</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tab Content: Investor Demo -->
+        <div id="content-demo" class="tab-content">
+            <div class="bg-gradient-to-br from-purple-600 to-pink-600 rounded-xl shadow-2xl p-8 text-white mb-8">
+                <div class="text-center mb-8">
+                    <h2 class="text-4xl font-bold mb-4">
+                        <i class="fas fa-rocket mr-3"></i>
+                        Move Lyrics
+                    </h2>
+                    <p class="text-2xl font-light mb-2">YouTube for Dance Choreography</p>
+                    <p class="text-xl opacity-90">Just like Spotify added lyrics to music, we add lyrics to DANCE</p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-white/10 backdrop-blur rounded-lg p-6">
+                        <div class="text-5xl mb-4">🎵</div>
+                        <h3 class="text-xl font-bold mb-2">Guitar Hero Scrolling</h3>
+                        <p>Beat-synchronized instructions scroll up like Guitar Hero notes</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur rounded-lg p-6">
+                        <div class="text-5xl mb-4">🎤</div>
+                        <h3 class="text-xl font-bold mb-2">Karaoke-Style Display</h3>
+                        <p>Current beat highlights while you see upcoming moves</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur rounded-lg p-6">
+                        <div class="text-5xl mb-4">💃</div>
+                        <h3 class="text-xl font-bold mb-2">Body Part Breakdown</h3>
+                        <p>Every beat shows what to do with arms, legs, torso, head</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl p-8 text-gray-900">
+                    <h3 class="text-2xl font-bold mb-6 text-center">
+                        <i class="fas fa-lightbulb text-yellow-500 mr-2"></i>
+                        The Innovation
+                    </h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-xl font-bold mb-4 text-purple-600">✅ Patent-Pending Features</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
+                                    <span><strong>Guitar Hero Scrolling</strong> for dance instructions (completely new)</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
+                                    <span><strong>Beat-synchronized text overlay</strong> with body part breakdown</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
+                                    <span><strong>3-Level Detail System</strong> (Simple/Standard/Detailed)</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
+                                    <span><strong>Count-In Timer</strong> preparation system</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-bold mb-4 text-purple-600">🚀 Business Model</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <i class="fas fa-users text-blue-500 mr-2 mt-1"></i>
+                                    <span><strong>B2C:</strong> Freemium (3 free, then $9.99/month unlimited)</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-building text-blue-500 mr-2 mt-1"></i>
+                                    <span><strong>B2B:</strong> Dance Studios ($49-199/month licensing)</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-star text-blue-500 mr-2 mt-1"></i>
+                                    <span><strong>Creator Economy:</strong> 70/30 revenue share (like YouTube)</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-globe text-blue-500 mr-2 mt-1"></i>
+                                    <span><strong>Network Effect:</strong> More creators → More content → More learners</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 p-6 bg-gradient-to-r from-purple-100 to-pink-100 rounded-lg">
+                        <h4 class="text-xl font-bold mb-3 text-center text-purple-900">
+                            <i class="fas fa-trophy mr-2"></i>
+                            Strongest USP for Creators
+                        </h4>
+                        <p class="text-lg text-center text-gray-700">
+                            <strong>"Like musicians can upload lyrics to their songs, dancers can now upload Move Lyrics to their choreographies."</strong>
+                        </p>
+                        <p class="text-center text-gray-600 mt-3">
+                            Every track can have multiple choreographies with Move Lyrics - different styles, difficulties, and interpretations.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-xl font-bold mb-4">
+                        <i class="fas fa-shield-alt text-green-600 mr-2"></i>
+                        Domains Secured
+                    </h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span class="font-mono">movelyrics.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span class="font-mono">movelyrics.de</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-xl font-bold mb-4">
+                        <i class="fas fa-balance-scale text-blue-600 mr-2"></i>
+                        Next Steps
+                    </h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-file-alt text-gray-400 mr-2 mt-1"></i>
+                            <span>Provisional Patent Application ($100-1500)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-code text-gray-400 mr-2 mt-1"></i>
+                            <span>Build MVP with sample choreographies</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-chart-line text-gray-400 mr-2 mt-1"></i>
+                            <span>Creator beta program (10-20 dancers)</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white mt-16 py-8">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p>&copy; 2025 Tini AI - Dance & Joy from Cyprus</p>
+            <div class="mt-4 flex justify-center gap-4">
+                <a href="https://instagram.com/tini.aii" class="hover:text-purple-400 transition">
+                    <i class="fab fa-instagram text-2xl"></i>
+                </a>
+                <a href="https://tiktok.com/@tini.aii" class="hover:text-purple-400 transition">
+                    <i class="fab fa-tiktok text-2xl"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.0/dist/axios.min.js"></script>
+    <script>
+      // Tab switching
+      function switchTab(tabName) {
+        // Remove active class from all tabs
+        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+        
+        // Add active class to selected tab
+        document.getElementById('tab-' + tabName).classList.add('active');
+        document.getElementById('content-' + tabName).classList.add('active');
+      }
+      
+      // Load video player on page load
+      window.addEventListener('DOMContentLoaded', () => {
+        loadVideos();
+      });
+      
+      async function loadVideos() {
+        try {
+          const response = await axios.get('/api/videos');
+          console.log('Videos loaded:', response.data);
+          // TODO: Display videos
+        } catch (error) {
+          console.error('Error loading videos:', error);
+        }
+      }
+    </script>
+    <script src="/static/app.js"></script>
+    <script src="/static/video-editor.js"></script>
+    <script src="/static/move-lyrics.js"></script>
+</body>
+</html>

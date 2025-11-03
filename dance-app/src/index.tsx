@@ -1,6 +1,7 @@
 import { Hono } from 'hono'
 import { cors } from 'hono/cors'
 import { serveStatic } from 'hono/cloudflare-workers'
+import enhancedRoutes from './enhanced-routes'
 
 type Bindings = {
   DB: D1Database;
@@ -145,6 +146,109 @@ app.get('/api/moves/search', async (c) => {
 })
 
 // ============================================
+// Move Lyrics API Routes
+// ============================================
+
+// Get Move Lyrics for a specific move
+app.get('/api/move-lyrics/:move_id', async (c) => {
+  const { DB } = c.env
+  const moveId = c.req.param('move_id')
+  
+  const { results: lyrics } = await DB.prepare(`
+    SELECT * FROM move_lyrics 
+    WHERE move_id = ? 
+    ORDER BY beat_number ASC, timestamp_ms ASC
+  `).bind(moveId).all()
+  
+  return c.json({ lyrics, move_id: parseInt(moveId) })
+})
+
+// Get all moves with their lyrics
+app.get('/api/videos/:id/lyrics', async (c) => {
+  const { DB } = c.env
+  const videoId = c.req.param('id')
+  
+  // Get all moves for video
+  const { results: moves } = await DB.prepare(`
+    SELECT * FROM moves WHERE video_id = ? ORDER BY bar_number, start_time_ms
+  `).bind(videoId).all()
+  
+  // Get lyrics for each move
+  const movesWithLyrics = []
+  for (const move of moves) {
+    const { results: lyrics } = await DB.prepare(`
+      SELECT * FROM move_lyrics WHERE move_id = ? ORDER BY beat_number ASC
+    `).bind(move.id).all()
+    
+    movesWithLyrics.push({
+      ...move,
+      lyrics: lyrics
+    })
+  }
+  
+  return c.json({ moves: movesWithLyrics })
+})
+
+// Create Move Lyrics for a move
+app.post('/api/move-lyrics', async (c) => {
+  const { DB } = c.env
+  const { 
+    move_id, beat_number, timestamp_ms, instruction,
+    torso_action, right_arm_action, left_arm_action,
+    legs_action, head_action, key_pose_description,
+    energy_level, tip
+  } = await c.req.json()
+  
+  const result = await DB.prepare(`
+    INSERT INTO move_lyrics (
+      move_id, beat_number, timestamp_ms, instruction,
+      torso_action, right_arm_action, left_arm_action,
+      legs_action, head_action, key_pose_description,
+      energy_level, tip
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+  `).bind(
+    move_id, beat_number, timestamp_ms, instruction,
+    torso_action, right_arm_action, left_arm_action,
+    legs_action, head_action, key_pose_description,
+    energy_level, tip
+  ).run()
+  
+  return c.json({ id: result.meta.last_row_id, message: 'Move Lyrics created' })
+})
+
+// Bulk create Move Lyrics
+app.post('/api/move-lyrics/bulk', async (c) => {
+  const { DB } = c.env
+  const { lyrics } = await c.req.json()
+  
+  const results = []
+  for (const lyric of lyrics) {
+    const result = await DB.prepare(`
+      INSERT INTO move_lyrics (
+        move_id, beat_number, timestamp_ms, instruction,
+        torso_action, right_arm_action, left_arm_action,
+        legs_action, head_action, key_pose_description,
+        energy_level, tip
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    `).bind(
+      lyric.move_id, lyric.beat_number, lyric.timestamp_ms, lyric.instruction,
+      lyric.torso_action, lyric.right_arm_action, lyric.left_arm_action,
+      lyric.legs_action, lyric.head_action, lyric.key_pose_description,
+      lyric.energy_level, lyric.tip
+    ).run()
+    
+    results.push(result.meta.last_row_id)
+  }
+  
+  return c.json({ message: 'Bulk Move Lyrics created', ids: results, count: results.length })
+})
+
+// ============================================
+// Mount Enhanced Routes
+// ============================================
+app.route('/', enhancedRoutes)
+
+// ============================================
 // Main Application Route
 // ============================================
 
@@ -155,9 +259,11 @@ app.get('/', (c) => {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Hip-Hop Dance Trainer - Nadja</title>
+        <title>Hip-Hop Dance Trainer - Nadja | Beat-by-Beat Learning</title>
         <script src="https://cdn.tailwindcss.com"></script>
         <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+        <link href="/static/video-editor.css" rel="stylesheet">
+        <link href="/static/move-lyrics.css" rel="stylesheet">
         <style>
           body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -231,6 +337,40 @@ app.get('/', (c) => {
             border-radius: 30px;
             backdrop-filter: blur(10px);
           }
+          
+          /* Tab System */
+          .tab-btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+          }
+          
+          .tab-btn:hover {
+            background: rgba(102, 126, 234, 0.1);
+            border-color: #667eea;
+          }
+          
+          .tab-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-color: #667eea;
+          }
+          
+          .tab-content {
+            display: none;
+          }
+          
+          .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+          }
+          
+          @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
         </style>
     </head>
     <body class="bg-gray-50">
@@ -255,7 +395,25 @@ app.get('/', (c) => {
 
         <!-- Main Content -->
         <main class="max-w-7xl mx-auto px-4 py-8">
-            <!-- Video Player Section -->
+            <!-- Tab Navigation -->
+            <div class="bg-white rounded-xl shadow-lg p-4 mb-8">
+                <div class="flex flex-wrap gap-4 justify-center">
+                    <button onclick="switchTab('player')" id="tab-player" class="tab-btn active">
+                        <i class="fas fa-play mr-2"></i>Video Player
+                    </button>
+                    <button onclick="switchTab('editor')" id="tab-editor" class="tab-btn">
+                        <i class="fas fa-cut mr-2"></i>Mobile Editor
+                    </button>
+                    <button onclick="switchTab('lyrics')" id="tab-lyrics" class="tab-btn">
+                        <i class="fas fa-music mr-2"></i>Move Lyrics
+                    </button>
+                    <button onclick="switchTab('demo')" id="tab-demo" class="tab-btn">
+                        <i class="fas fa-rocket mr-2"></i>Move Lyrics Demo
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Tab Content: Video Player -->
             <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
                 <div class="video-container">
                     <video id="danceVideo" class="w-full rounded-lg shadow-md" controls>
