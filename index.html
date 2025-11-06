@@ -304,6 +304,23 @@
                 }
             }, { once: true });
         });
+
+        // Fade out hero buttons on scroll
+        let lastScrollY = window.scrollY;
+        const heroButtons = document.querySelector('.hero-buttons');
+        const fadeThreshold = 100; // Start fading after 100px scroll
+
+        window.addEventListener('scroll', function() {
+            const scrollY = window.scrollY;
+            
+            if (scrollY > fadeThreshold) {
+                heroButtons.classList.add('fade-out');
+            } else {
+                heroButtons.classList.remove('fade-out');
+            }
+            
+            lastScrollY = scrollY;
+        });
     </script>
 </body>
 </html>
