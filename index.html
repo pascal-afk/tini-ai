@@ -11,6 +11,20 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- Background Music Player -->
+    <div class="music-player" id="musicPlayer">
+        <button class="music-toggle" id="musicToggle" aria-label="Toggle music">
+            <i class="fas fa-music"></i>
+        </button>
+        <div class="music-info">
+            <span class="music-title">Ocean Dance</span>
+            <span class="music-artist">Nadja</span>
+        </div>
+    </div>
+    <audio id="backgroundMusic" loop>
+        <source src="audio/ocean-dance.mp3" type="audio/mpeg">
+    </audio>
+
     <!-- Hero Section -->
     <header class="hero">
         <div class="hero-overlay"></div>
@@ -177,5 +191,56 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+        // Background Music Auto-Play
+        document.addEventListener('DOMContentLoaded', function() {
+            const audio = document.getElementById('backgroundMusic');
+            const musicToggle = document.getElementById('musicToggle');
+            const musicPlayer = document.getElementById('musicPlayer');
+            let isPlaying = false;
+
+            // Try to autoplay on page load
+            function tryAutoPlay() {
+                audio.volume = 0.4; // Set volume to 40%
+                audio.play().then(() => {
+                    isPlaying = true;
+                    musicToggle.innerHTML = '<i class="fas fa-pause"></i>';
+                    musicPlayer.classList.add('playing');
+                }).catch(error => {
+                    // Autoplay blocked - user needs to click
+                    console.log('Autoplay blocked. User interaction needed.');
+                    isPlaying = false;
+                    musicToggle.innerHTML = '<i class="fas fa-play"></i>';
+                });
+            }
+
+            // Toggle music on button click
+            musicToggle.addEventListener('click', function() {
+                if (isPlaying) {
+                    audio.pause();
+                    musicToggle.innerHTML = '<i class="fas fa-play"></i>';
+                    musicPlayer.classList.remove('playing');
+                    isPlaying = false;
+                } else {
+                    audio.play();
+                    musicToggle.innerHTML = '<i class="fas fa-pause"></i>';
+                    musicPlayer.classList.add('playing');
+                    isPlaying = true;
+                }
+            });
+
+            // Try autoplay after short delay
+            setTimeout(tryAutoPlay, 500);
+
+            // Also try on first user interaction
+            let hasInteracted = false;
+            document.addEventListener('click', function() {
+                if (!hasInteracted && !isPlaying) {
+                    hasInteracted = true;
+                    tryAutoPlay();
+                }
+            }, { once: true });
+        });
+    </script>
 </body>
 </html>
