@@ -11,18 +11,58 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Background Music Player -->
+    <!-- Background Music Player with Playlist -->
     <div class="music-player" id="musicPlayer">
         <button class="music-toggle" id="musicToggle" aria-label="Toggle music">
             <i class="fas fa-music"></i>
         </button>
         <div class="music-info">
-            <span class="music-title">Ocean Dance</span>
+            <span class="music-title" id="songTitle">Ocean Dance</span>
             <span class="music-artist">Nadja</span>
         </div>
+        <button class="playlist-toggle" id="playlistToggle" aria-label="Show playlist">
+            <i class="fas fa-list"></i>
+        </button>
     </div>
+    
+    <!-- Playlist Menu -->
+    <div class="playlist-menu" id="playlistMenu">
+        <div class="playlist-header">
+            <h3>Choose Your Vibe</h3>
+            <button class="playlist-close" id="playlistClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="playlist-items">
+            <div class="playlist-item active" data-track="tropical" data-title="Ocean Dance (Tropical Pop)">
+                <div class="track-icon">🌴</div>
+                <div class="track-info">
+                    <div class="track-name">Tropical Pop</div>
+                    <div class="track-genre">Beach House Vibes</div>
+                </div>
+                <i class="fas fa-check track-check"></i>
+            </div>
+            <div class="playlist-item" data-track="hiphop" data-title="Ocean Dance (Hip-Hop)">
+                <div class="track-icon">🎤</div>
+                <div class="track-info">
+                    <div class="track-name">Hip-Hop</div>
+                    <div class="track-genre">Urban Beach Style</div>
+                </div>
+                <i class="fas fa-check track-check"></i>
+            </div>
+            <div class="playlist-item" data-track="salsa" data-title="Ocean Dance (Salsa)">
+                <div class="track-icon">💃</div>
+                <div class="track-info">
+                    <div class="track-name">Salsa</div>
+                    <div class="track-genre">Latin Dance Energy</div>
+                </div>
+                <i class="fas fa-check track-check"></i>
+            </div>
+        </div>
+    </div>
+    
     <audio id="backgroundMusic" loop>
-        <source src="audio/ocean-dance.mp3" type="audio/mpeg">
+        <source src="audio/ocean-dance.mp3" type="audio/mpeg" id="audioSource">
     </audio>
 
     <!-- Hero Section -->
@@ -192,30 +232,44 @@
 
     <script src="js/main.js"></script>
     <script>
-        // Background Music Auto-Play
+        // Background Music with Playlist
         document.addEventListener('DOMContentLoaded', function() {
             const audio = document.getElementById('backgroundMusic');
+            const audioSource = document.getElementById('audioSource');
             const musicToggle = document.getElementById('musicToggle');
             const musicPlayer = document.getElementById('musicPlayer');
+            const playlistToggle = document.getElementById('playlistToggle');
+            const playlistMenu = document.getElementById('playlistMenu');
+            const playlistClose = document.getElementById('playlistClose');
+            const playlistItems = document.querySelectorAll('.playlist-item');
+            const songTitle = document.getElementById('songTitle');
+            
             let isPlaying = false;
+            let currentTrack = 'tropical';
+            
+            const tracks = {
+                tropical: 'audio/ocean-dance.mp3',
+                hiphop: 'audio/ocean-dance-hiphop.mp3',
+                salsa: 'audio/ocean-dance-salsa.mp3'
+            };
 
             // Try to autoplay on page load
             function tryAutoPlay() {
-                audio.volume = 0.4; // Set volume to 40%
+                audio.volume = 0.4;
                 audio.play().then(() => {
                     isPlaying = true;
                     musicToggle.innerHTML = '<i class="fas fa-pause"></i>';
                     musicPlayer.classList.add('playing');
                 }).catch(error => {
-                    // Autoplay blocked - user needs to click
                     console.log('Autoplay blocked. User interaction needed.');
                     isPlaying = false;
                     musicToggle.innerHTML = '<i class="fas fa-play"></i>';
                 });
             }
 
-            // Toggle music on button click
-            musicToggle.addEventListener('click', function() {
+            // Toggle music
+            musicToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
                 if (isPlaying) {
                     audio.pause();
                     musicToggle.innerHTML = '<i class="fas fa-play"></i>';
@@ -229,10 +283,69 @@
                 }
             });
 
-            // Try autoplay after short delay
+            // Show/Hide Playlist
+            playlistToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                playlistMenu.classList.toggle('show');
+            });
+
+            playlistClose.addEventListener('click', function(e) {
+                e.stopPropagation();
+                playlistMenu.classList.remove('show');
+            });
+
+            // Close playlist when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!playlistMenu.contains(e.target) && !playlistToggle.contains(e.target)) {
+                    playlistMenu.classList.remove('show');
+                }
+            });
+
+            // Switch tracks
+            playlistItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const track = this.dataset.track;
+                    const title = this.dataset.title;
+                    
+                    if (track === currentTrack) {
+                        playlistMenu.classList.remove('show');
+                        return;
+                    }
+                    
+                    currentTrack = track;
+                    const wasPlaying = isPlaying;
+                    
+                    // Update active state
+                    playlistItems.forEach(i => i.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Update song title
+                    songTitle.textContent = title;
+                    
+                    // Change audio source
+                    audioSource.src = tracks[track];
+                    audio.load();
+                    
+                    // Resume playing if was playing
+                    if (wasPlaying) {
+                        audio.play().then(() => {
+                            isPlaying = true;
+                            musicToggle.innerHTML = '<i class="fas fa-pause"></i>';
+                            musicPlayer.classList.add('playing');
+                        });
+                    }
+                    
+                    // Close playlist
+                    setTimeout(() => {
+                        playlistMenu.classList.remove('show');
+                    }, 300);
+                });
+            });
+
+            // Try autoplay
             setTimeout(tryAutoPlay, 500);
 
-            // Also try on first user interaction
+            // Fallback on first interaction
             let hasInteracted = false;
             document.addEventListener('click', function() {
                 if (!hasInteracted && !isPlaying) {
