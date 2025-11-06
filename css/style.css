@@ -256,16 +256,18 @@ body {
 }
 
 .hero-button.book {
-    background: rgba(255, 255, 255, 0.95);
-    color: #E1306C;
-    border: 2px solid rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--white);
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .hero-button.book:hover {
     transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 12px 35px rgba(255, 255, 255, 0.5);
-    background: var(--white);
-    border-color: #E1306C;
+    box-shadow: 0 12px 35px rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.8);
 }
 
 .hero-button.collabs {
