@@ -11,35 +11,38 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Music Playlist Stack -->
+    <!-- Music Players Stack -->
     <div class="music-stack" id="musicStack">
-        <div class="track-card" data-track="tropical">
-            <button class="track-play" data-track="tropical" aria-label="Play Tropical Pop">
+        <!-- Tropical Pop Player -->
+        <div class="music-player" data-track="tropical">
+            <button class="music-toggle" data-track="tropical" aria-label="Play Tropical">
                 <i class="fas fa-play"></i>
             </button>
-            <div class="track-info">
-                <span class="track-title">Ocean Dance</span>
-                <span class="track-subtitle">Nadja</span>
+            <div class="music-info">
+                <span class="music-title">Ocean Dance</span>
+                <span class="music-artist">Nadja • Tropical Pop</span>
             </div>
         </div>
         
-        <div class="track-card" data-track="hiphop">
-            <button class="track-play" data-track="hiphop" aria-label="Play Hip-Hop">
+        <!-- Hip-Hop Player -->
+        <div class="music-player" data-track="hiphop">
+            <button class="music-toggle" data-track="hiphop" aria-label="Play Hip-Hop">
                 <i class="fas fa-play"></i>
             </button>
-            <div class="track-info">
-                <span class="track-title">Ocean Dance</span>
-                <span class="track-subtitle">Nadja</span>
+            <div class="music-info">
+                <span class="music-title">Ocean Dance</span>
+                <span class="music-artist">Nadja • Hip-Hop</span>
             </div>
         </div>
         
-        <div class="track-card" data-track="salsa">
-            <button class="track-play" data-track="salsa" aria-label="Play Salsa">
+        <!-- Salsa Player -->
+        <div class="music-player" data-track="salsa">
+            <button class="music-toggle" data-track="salsa" aria-label="Play Salsa">
                 <i class="fas fa-play"></i>
             </button>
-            <div class="track-info">
-                <span class="track-title">Ocean Dance</span>
-                <span class="track-subtitle">Nadja</span>
+            <div class="music-info">
+                <span class="music-title">Ocean Dance</span>
+                <span class="music-artist">Nadja • Salsa</span>
             </div>
         </div>
     </div>
@@ -215,12 +218,12 @@
 
     <script src="js/main.js"></script>
     <script>
-        // Music Stack Player
+        // Music Stack Players
         document.addEventListener('DOMContentLoaded', function() {
             const audio = document.getElementById('backgroundMusic');
             const audioSource = document.getElementById('audioSource');
-            const trackCards = document.querySelectorAll('.track-card');
-            const trackButtons = document.querySelectorAll('.track-play');
+            const players = document.querySelectorAll('.music-player');
+            const toggleButtons = document.querySelectorAll('.music-toggle');
             
             let isPlaying = false;
             let currentTrack = null;
@@ -239,14 +242,9 @@
                     // Pause current track
                     audio.pause();
                     isPlaying = false;
-                    updateButtonIcon(trackName, 'play');
-                    trackCards.forEach(card => {
-                        if (card.dataset.track === trackName) {
-                            card.classList.remove('playing');
-                        }
-                    });
+                    updateUI(trackName, false);
                 } else {
-                    // Play new track or resume
+                    // Switch or play track
                     if (currentTrack !== trackName) {
                         audioSource.src = tracks[trackName];
                         audio.load();
@@ -256,70 +254,50 @@
                     audio.volume = 0.4;
                     audio.play().then(() => {
                         isPlaying = true;
-                        updateAllButtons(trackName);
-                        updateActiveCard(trackName);
+                        updateUI(trackName, true);
                     }).catch(error => {
                         console.log('Playback failed:', error);
                         isPlaying = false;
-                        updateButtonIcon(trackName, 'play');
+                        updateUI(trackName, false);
                     });
                 }
             }
 
-            // Update button icons
-            function updateButtonIcon(trackName, icon) {
-                trackButtons.forEach(btn => {
-                    if (btn.dataset.track === trackName) {
-                        btn.innerHTML = icon === 'play' ? '<i class="fas fa-play"></i>' : '<i class="fas fa-pause"></i>';
-                    }
-                });
-            }
-
-            // Update all buttons
-            function updateAllButtons(activeTrack) {
-                trackButtons.forEach(btn => {
-                    if (btn.dataset.track === activeTrack) {
-                        btn.innerHTML = '<i class="fas fa-pause"></i>';
+            // Update all UI elements
+            function updateUI(activeTrack, playing) {
+                players.forEach(player => {
+                    const track = player.dataset.track;
+                    const button = player.querySelector('.music-toggle');
+                    
+                    if (track === activeTrack && playing) {
+                        player.classList.add('playing');
+                        button.innerHTML = '<i class="fas fa-pause"></i>';
                     } else {
-                        btn.innerHTML = '<i class="fas fa-play"></i>';
+                        player.classList.remove('playing');
+                        button.innerHTML = '<i class="fas fa-play"></i>';
                     }
                 });
             }
 
-            // Update active card
-            function updateActiveCard(activeTrack) {
-                trackCards.forEach(card => {
-                    if (card.dataset.track === activeTrack) {
-                        card.classList.add('playing');
-                    } else {
-                        card.classList.remove('playing');
-                    }
-                });
-            }
-
-            // Add click listeners to all buttons
-            trackButtons.forEach(button => {
+            // Add click listeners
+            toggleButtons.forEach(button => {
                 button.addEventListener('click', function(e) {
                     e.stopPropagation();
-                    const trackName = this.dataset.track;
-                    playTrack(trackName);
+                    playTrack(this.dataset.track);
                 });
             });
 
             // Auto-play first track
-            function tryAutoPlay() {
+            setTimeout(() => {
                 playTrack('tropical');
-            }
-
-            // Try autoplay after delay
-            setTimeout(tryAutoPlay, 500);
+            }, 500);
 
             // Fallback on first interaction
             let hasInteracted = false;
             document.addEventListener('click', function() {
                 if (!hasInteracted && !isPlaying) {
                     hasInteracted = true;
-                    tryAutoPlay();
+                    playTrack('tropical');
                 }
             }, { once: true });
         });
