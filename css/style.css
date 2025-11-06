@@ -256,6 +256,18 @@ body {
     border-color: #E1306C;
 }
 
+.hero-button.collabs {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.hero-button.collabs:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 12px 35px rgba(255, 107, 157, 0.6);
+    border-color: var(--white);
+}
+
 .hero-button i {
     font-size: 1.3rem;
 }
