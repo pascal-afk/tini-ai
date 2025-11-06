@@ -135,15 +135,26 @@
     .music-stack {
         bottom: 20px;
         right: 20px;
-        left: 20px;
-        flex-direction: column;
-        gap: 10px;
+        left: auto;
+        flex-direction: row;
+        gap: 8px;
+        max-width: calc(100vw - 40px);
+        overflow-x: auto;
+        overflow-y: visible;
+        padding: 5px;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+    
+    .music-stack::-webkit-scrollbar {
+        display: none;
     }
     
     .music-player {
         padding: 10px 15px;
-        min-width: auto;
-        width: 100%;
+        min-width: 180px;
+        width: 180px;
+        flex-shrink: 0;
     }
     
     .music-toggle {
@@ -154,11 +165,11 @@
     }
     
     .music-title {
-        font-size: 13px;
+        font-size: 12px;
     }
     
     .music-artist {
-        font-size: 11px;
+        font-size: 10px;
     }
 }
 
@@ -204,6 +215,7 @@ body {
     position: relative;
     z-index: 2;
     animation: fadeInUp 1s ease-out;
+    margin-top: 25vh;
 }
 
 .hero-buttons {
@@ -669,6 +681,10 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .hero-content {
+        margin-top: 30vh;
+    }
+
     .hero-buttons {
         gap: 1.5rem;
     }
