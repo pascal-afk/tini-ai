@@ -319,19 +319,20 @@
                 });
             });
 
-            // Auto-play first track
-            setTimeout(() => {
-                playTrack('tropical');
-            }, 500);
-
-            // Fallback on first interaction
+            // Auto-play first track on first user interaction only
             let hasInteracted = false;
-            document.addEventListener('click', function() {
+            const tryAutoPlay = function() {
                 if (!hasInteracted && !isPlaying) {
                     hasInteracted = true;
                     playTrack('tropical');
                 }
-            }, { once: true });
+            };
+            
+            // Try auto-play after delay
+            setTimeout(tryAutoPlay, 500);
+            
+            // Fallback on first click if auto-play failed
+            document.addEventListener('click', tryAutoPlay, { once: true });
         });
 
         // Fade out hero buttons and scroll indicator on scroll
