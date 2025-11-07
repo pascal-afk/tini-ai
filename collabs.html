@@ -3,332 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Collaborations - Nadja x AI Creators</title>
+    <title>Collaborations - Nadja x AI Creators | @tini.aii</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Explore Nadja's collaborations with AI creators including Luna Avery AI and Amy Chen. Watch our creative video collabs.">
+    <meta property="og:title" content="Nadja's Collaborations - AI Creator Video Wall">
+    <meta property="og:description" content="Creative collaborations between @tini.aii and talented AI creators">
+    
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/collabs.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
-    <style>
-        .collabs-header {
-            padding: 120px 0 60px;
-            text-align: center;
-            background: linear-gradient(135deg, var(--bg-light), var(--bg-cream));
-        }
-        
-        .collabs-header h1 {
-            font-size: 48px;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 20px;
-        }
-        
-        .collabs-header p {
-            font-size: 20px;
-            color: var(--text-light);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .back-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 24px;
-            background: var(--white);
-            color: var(--primary-color);
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            box-shadow: 0 4px 20px var(--shadow);
-            transition: all 0.3s ease;
-            margin-bottom: 30px;
-        }
-        
-        .back-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 30px var(--shadow-strong);
-        }
-        
-        .collabs-section {
-            padding: 60px 0;
-        }
-        
-        .collab-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-            margin-top: 40px;
-        }
-        
-        .collab-card {
-            background: var(--white);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 8px 32px var(--shadow);
-            transition: all 0.3s ease;
-        }
-        
-        .collab-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 48px var(--shadow-strong);
-        }
-        
-        .collab-video {
-            position: relative;
-            width: 100%;
-            padding-bottom: 177.78%; /* 9:16 aspect ratio */
-            background: var(--bg-light);
-            overflow: hidden;
-        }
-        
-        .collab-video iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        
-        .collab-video img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .collab-content {
-            padding: 24px;
-        }
-        
-        .collab-creators {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 16px;
-        }
-        
-        .creator-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 6px 12px;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: var(--white);
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        
-        .creator-tag:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 12px rgba(255, 107, 157, 0.4);
-        }
-        
-        .collab-title {
-            font-size: 20px;
-            font-weight: 600;
-            color: var(--text-dark);
-            margin-bottom: 12px;
-            line-height: 1.4;
-        }
-        
-        .collab-description {
-            font-size: 15px;
-            color: var(--text-light);
-            line-height: 1.6;
-            margin-bottom: 16px;
-        }
-        
-        .collab-stats {
-            display: flex;
-            gap: 20px;
-            padding-top: 16px;
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
-        }
-        
-        .stat-item {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 14px;
-            color: var(--text-light);
-        }
-        
-        .stat-item i {
-            color: var(--primary-color);
-        }
-        
-        .collab-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 20px;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: var(--white);
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            margin-top: 16px;
-        }
-        
-        .collab-link:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 20px rgba(255, 107, 157, 0.4);
-        }
-        
-        .cta-section {
-            padding: 80px 0;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: var(--white);
-            text-align: center;
-        }
-        
-        .cta-section h2 {
-            font-size: 36px;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-        
-        .cta-section p {
-            font-size: 18px;
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
-        
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 16px 32px;
-            background: var(--white);
-            color: var(--primary-color);
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 18px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.3);
-        }
-        
-        @media (max-width: 768px) {
-            .collabs-header h1 {
-                font-size: 32px;
-            }
-            
-            .collab-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-            
-            .cta-section h2 {
-                font-size: 28px;
-            }
-        }
-    </style>
 </head>
 <body>
-    <!-- Collaborations Header -->
-    <div class="collabs-header">
-        <div class="container">
-            <a href="index.html" class="back-button">
-                <i class="fas fa-arrow-left"></i> Back to Home
+    <!-- Fixed Top Navigation (fades out on scroll) -->
+    <nav class="collabs-nav" id="collabsNav">
+        <div class="nav-container">
+            <a href="index.html" class="back-link">
+                <i class="fas fa-arrow-left"></i>
+                <span>Back</span>
             </a>
-            <h1>🤝 Collaborations</h1>
-            <p>Creating magic together with amazing AI creators from around the world</p>
+            <div class="nav-title">Collaborations</div>
+            <a href="https://ig.me/m/tini.aii" class="collab-cta-btn" target="_blank">
+                <i class="fas fa-plus"></i>
+                <span>Collaborate</span>
+            </a>
         </div>
-    </div>
+    </nav>
 
-    <!-- Collaborations Section -->
-    <section class="collabs-section">
-        <div class="container">
-            <div class="collab-grid">
-                <!-- Collab 1: Luna Avery AI -->
-                <div class="collab-card">
-                    <div class="collab-video">
-                        <img src="https://page.gensparksite.com/v1/base64_upload/4d66157de3f744a923cc6ffb104399bb" alt="Nadja x Luna Avery AI Collab">
-                    </div>
-                    <div class="collab-content">
-                        <div class="collab-creators">
-                            <a href="https://instagram.com/tini.aii" target="_blank" class="creator-tag">
-                                <i class="fab fa-instagram"></i> @tini.aii
-                            </a>
-                            <span style="color: var(--text-light);">×</span>
-                            <a href="https://instagram.com/lunaaveryai" target="_blank" class="creator-tag">
-                                <i class="fab fa-instagram"></i> @lunaaveryai
-                            </a>
-                        </div>
-                        <h3 class="collab-title">Cyprus Sunset Vibes with Luna Avery</h3>
-                        <p class="collab-description">
-                            An amazing collaboration bringing together the beauty of Cyprus beaches and AI creativity. 
-                            Two AI creators, one stunning sunset moment.
-                        </p>
-                        <a href="https://www.instagram.com/reel/DQkYGNPDMhw/" target="_blank" class="collab-link">
-                            <i class="fab fa-instagram"></i> View on Instagram
-                        </a>
-                        <div class="collab-stats">
-                            <div class="stat-item">
-                                <i class="fas fa-heart"></i>
-                                <span>Collab #1</span>
-                            </div>
-                            <div class="stat-item">
-                                <i class="fas fa-calendar"></i>
-                                <span>Nov 2025</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Placeholder for Future Collabs -->
-                <div class="collab-card" style="background: linear-gradient(135deg, rgba(255, 107, 157, 0.1), rgba(255, 193, 69, 0.1));">
-                    <div class="collab-video" style="background: linear-gradient(135deg, var(--bg-light), var(--bg-cream)); display: flex; align-items: center; justify-content: center;">
-                        <div style="text-align: center; padding: 40px;">
-                            <i class="fas fa-plus-circle" style="font-size: 64px; color: var(--primary-color); margin-bottom: 20px;"></i>
-                            <h3 style="font-size: 24px; color: var(--text-dark); margin-bottom: 10px;">More Coming Soon!</h3>
-                            <p style="color: var(--text-light);">Want to collaborate?</p>
-                        </div>
-                    </div>
-                    <div class="collab-content">
-                        <h3 class="collab-title">Your Collaboration Could Be Here</h3>
-                        <p class="collab-description">
-                            I'm always looking for creative AI creators to collaborate with. 
-                            Let's create something amazing together!
-                        </p>
-                        <a href="https://ig.me/m/tini.aii" target="_blank" class="collab-link">
-                            <i class="fas fa-comments"></i> DM Me on Instagram
-                        </a>
-                    </div>
-                </div>
-            </div>
+    <!-- Hero Section with Large Title (like Meta.AI) -->
+    <section class="collabs-hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="mega-title">
+                Creating Magic<br>Together ✨
+            </h1>
+            <p class="hero-subtitle">
+                Collaborations with amazing AI creators from around the world
+            </p>
+        </div>
+        <div class="scroll-hint" id="scrollHint">
+            <i class="fas fa-chevron-down"></i>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <h2>Ready to Collaborate?</h2>
-            <p>Let's create something amazing together! Whether it's a video collab, feature, or creative project.</p>
-            <a href="https://ig.me/m/tini.aii" target="_blank" class="cta-button">
-                <i class="fab fa-instagram"></i> DM Me on Instagram
-            </a>
+    <!-- Video Wall Grid (Meta.AI Style) -->
+    <section class="video-wall">
+        <div class="wall-container">
+            
+            <!-- Section: Amy Chen Collabs -->
+            <div class="collab-section fade-in-section">
+                <div class="section-header">
+                    <div class="collaborators">
+                        <a href="https://instagram.com/tini.aii" target="_blank" class="creator-badge">
+                            @tini.aii
+                        </a>
+                        <span class="collab-x">×</span>
+                        <a href="https://instagram.com/real_amychen" target="_blank" class="creator-badge">
+                            @real_amychen
+                        </a>
+                    </div>
+                    <div class="section-meta">
+                        <span class="date"><i class="far fa-calendar"></i> Nov 2025</span>
+                        <span class="count"><i class="fas fa-video"></i> 3 Videos</span>
+                    </div>
+                </div>
+                
+                <div class="video-grid">
+                    <!-- Video 1: Amy Chen Collab -->
+                    <div class="video-item" data-index="0">
+                        <div class="video-wrapper">
+                            <div class="video-thumbnail" style="background-image: url('https://scontent.cdninstagram.com/v/t51.29350-15/472046817_18479028182020961_4932950883071867717_n.jpg');">
+                                <div class="play-overlay">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <h3>Cyprus Beach Dance Vibes</h3>
+                            <p>Dancing on the beautiful beaches of Cyprus with Amy Chen</p>
+                            <a href="https://www.instagram.com/reel/DQuL8r3jIet/" target="_blank" class="view-btn">
+                                <i class="fab fa-instagram"></i> View
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Video 2: Amy Chen Collab -->
+                    <div class="video-item" data-index="1">
+                        <div class="video-wrapper">
+                            <div class="video-thumbnail" style="background-image: url('https://scontent.cdninstagram.com/v/t51.29350-15/472046817_18479028182020961_4932950883071867717_n.jpg');">
+                                <div class="play-overlay">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <h3>Sunset Dance Energy</h3>
+                            <p>Golden hour magic with Amy Chen on Cyprus shores</p>
+                            <a href="https://www.instagram.com/reel/DQuL8r3jIet/" target="_blank" class="view-btn">
+                                <i class="fab fa-instagram"></i> View
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Video 3: Amy Chen Collab -->
+                    <div class="video-item" data-index="2">
+                        <div class="video-wrapper">
+                            <div class="video-thumbnail" style="background-image: url('https://scontent.cdninstagram.com/v/t51.29350-15/472046817_18479028182020961_4932950883071867717_n.jpg');">
+                                <div class="play-overlay">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <h3>Beach Dance Collaboration</h3>
+                            <p>Creating amazing content together by the Mediterranean sea</p>
+                            <a href="https://www.instagram.com/reel/DQv2H3YDIa4/" target="_blank" class="view-btn">
+                                <i class="fab fa-instagram"></i> View
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section: Luna Avery AI Collab -->
+            <div class="collab-section fade-in-section">
+                <div class="section-header">
+                    <div class="collaborators">
+                        <a href="https://instagram.com/tini.aii" target="_blank" class="creator-badge">
+                            @tini.aii
+                        </a>
+                        <span class="collab-x">×</span>
+                        <a href="https://instagram.com/lunaaveryai" target="_blank" class="creator-badge">
+                            @lunaaveryai
+                        </a>
+                    </div>
+                    <div class="section-meta">
+                        <span class="date"><i class="far fa-calendar"></i> Nov 2025</span>
+                        <span class="count"><i class="fas fa-video"></i> 1 Video</span>
+                    </div>
+                </div>
+                
+                <div class="video-grid">
+                    <!-- Luna Avery Collab -->
+                    <div class="video-item" data-index="3">
+                        <div class="video-wrapper">
+                            <div class="video-thumbnail" style="background-image: url('https://page.gensparksite.com/v1/base64_upload/4d66157de3f744a923cc6ffb104399bb');">
+                                <div class="play-overlay">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <h3>Cyprus Sunset Vibes</h3>
+                            <p>An amazing collaboration bringing together Cyprus beaches and AI creativity</p>
+                            <a href="https://www.instagram.com/reel/DQkYGNPDMhw/" target="_blank" class="view-btn">
+                                <i class="fab fa-instagram"></i> View
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to Action Section -->
+            <div class="collab-cta fade-in-section">
+                <div class="cta-content">
+                    <div class="cta-icon">
+                        <i class="fas fa-sparkles"></i>
+                    </div>
+                    <h2>Want to Collaborate?</h2>
+                    <p>I'm always looking for creative AI creators to work with. Let's create something amazing together!</p>
+                    <a href="https://ig.me/m/tini.aii" target="_blank" class="cta-button">
+                        <i class="fab fa-instagram"></i>
+                        DM Me on Instagram
+                    </a>
+                </div>
+            </div>
+
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Nadja - Dance & Joy from Cyprus. All rights reserved.</p>
+            <p>&copy; 2025 Nadja (@tini.aii) - Dance & Joy from Cyprus. All rights reserved.</p>
             <div class="footer-links">
                 <a href="https://instagram.com/tini.aii" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-instagram"></i>
@@ -337,12 +197,59 @@
                 <a href="index.html">Home</a>
                 <span style="margin: 0 10px; color: var(--text-light);">•</span>
                 <a href="collabs.html">Collabs</a>
-                <span style="margin: 0 10px; color: var(--text-light);">•</span>
-                <a href="legal.html">Legal</a>
-                <span style="margin: 0 10px; color: var(--text-light);">•</span>
-                <a href="privacy.html">Privacy</a>
             </div>
         </div>
     </footer>
+
+    <script>
+        // Fade out navigation on scroll (wie auf Hauptseite)
+        const collabsNav = document.getElementById('collabsNav');
+        const scrollHint = document.getElementById('scrollHint');
+        const fadeThreshold = 100;
+
+        window.addEventListener('scroll', function() {
+            const scrollY = window.scrollY;
+            
+            if (scrollY > fadeThreshold) {
+                collabsNav.classList.add('fade-out');
+                scrollHint.classList.add('fade-out');
+            } else {
+                collabsNav.classList.remove('fade-out');
+                scrollHint.classList.remove('fade-out');
+            }
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in sections
+        document.querySelectorAll('.fade-in-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Video item hover effects
+        document.querySelectorAll('.video-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.querySelector('.play-overlay').style.opacity = '1';
+                this.querySelector('.play-overlay').style.transform = 'translate(-50%, -50%) scale(1.2)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.querySelector('.play-overlay').style.opacity = '0.9';
+                this.querySelector('.play-overlay').style.transform = 'translate(-50%, -50%) scale(1)';
+            });
+        });
+    </script>
 </body>
 </html>
