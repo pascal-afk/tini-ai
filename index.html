@@ -3,7 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nadja - Dance & Joy from Cyprus</title>
+    <title>Nadja (@tini.aii) - AI Dance Creator from Cyprus | Beach Dance Reels</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Nadja is an AI dance creator from Cyprus, bringing joy and energy to beach dance reels. Follow @tini.aii for collaborations and features.">
+    <meta name="keywords" content="Nadja, tini.aii, AI dance, Cyprus, beach dance, AI influencer, dance reels, Larnaca">
+    <meta name="author" content="Nadja - tini.aii">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tini.ai">
+    <meta property="og:title" content="Nadja (@tini.aii) - AI Dance Creator from Cyprus">
+    <meta property="og:description" content="Experience the energy and joy of dancing on Cyprus beaches. AI-powered dance reels and collaborations.">
+    <meta property="og:image" content="https://page.gensparksite.com/v1/base64_upload/68767ef74d00802b2742a3b89b66d659">
+    
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Nadja (@tini.aii) - AI Dance Creator from Cyprus">
+    <meta name="twitter:description" content="Experience the energy and joy of dancing on Cyprus beaches.">
+    <meta name="twitter:image" content="https://page.gensparksite.com/v1/base64_upload/68767ef74d00802b2742a3b89b66d659">
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,6 +29,18 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- Sticky Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">@tini.aii</a>
+            <div class="nav-links">
+                <a href="#videos" class="nav-link">Videos</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <a href="collabs.html" class="nav-link">Collabs</a>
+            </div>
+        </div>
+    </nav>
     <!-- Music Players Stack -->
     <div class="music-stack" id="musicStack">
         <!-- Tropical Pop Player -->
@@ -67,22 +97,22 @@
                 </a>
             </div>
         </div>
-        <div class="scroll-indicator">
+        <div class="scroll-indicator" id="scrollIndicator">
             <i class="fas fa-chevron-down"></i>
         </div>
     </header>
 
     <!-- Video Showcase Section -->
-    <section class="video-showcase">
+    <section id="videos" class="video-showcase">
         <div class="container">
             <h2 class="section-title">Dance Reels</h2>
             <p class="section-subtitle">Experience the energy and joy of dancing on Cyprus beaches</p>
             
             <div class="video-grid">
                 <!-- 16:9 Landscape Video -->
-                <div class="video-card landscape">
+                <div class="video-card landscape fade-in-section">
                     <div class="video-wrapper">
-                        <video controls playsinline webkit-playsinline>
+                        <video controls playsinline webkit-playsinline loading="lazy">
                             <source src="https://page.gensparksite.com/get_upload_url/f05ff999cfeefff50b6f172df059b235c4cd5c7f072dd4ebf3e614b84c10d9fd/default/690b5255-92ee-4ead-bd78-e64cc4d70733" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
@@ -99,9 +129,9 @@
                 </div>
 
                 <!-- 16:9 Music Video -->
-                <div class="video-card landscape">
+                <div class="video-card landscape fade-in-section">
                     <div class="video-wrapper">
-                        <video controls playsinline webkit-playsinline>
+                        <video controls playsinline webkit-playsinline loading="lazy">
                             <source src="https://page.gensparksite.com/get_upload_url/f05ff999cfeefff50b6f172df059b235c4cd5c7f072dd4ebf3e614b84c10d9fd/default/bf3717e8-de72-4948-a856-c07d1f54a73d" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
@@ -123,7 +153,7 @@
                 </div>
 
                 <!-- 9:16 Portrait Story -->
-                <div class="video-card portrait">
+                <div class="video-card portrait fade-in-section">
                     <div class="video-wrapper">
                         <img src="https://page.gensparksite.com/v1/base64_upload/4d66157de3f744a923cc6ffb104399bb" alt="Nadja at sunset beach - Golden hour contemplation" class="portrait-image">
                     </div>
@@ -146,13 +176,13 @@
     </section>
 
     <!-- About Section -->
-    <section class="about">
+    <section id="about" class="about">
         <div class="container">
             <div class="about-content">
-                <div class="about-image">
-                    <img src="https://page.gensparksite.com/v1/base64_upload/16a6330dfe71fd65e2ff362bb40a4cb9" alt="Nadja dancing">
+                <div class="about-image fade-in-section">
+                    <img src="https://page.gensparksite.com/v1/base64_upload/16a6330dfe71fd65e2ff362bb40a4cb9" alt="Nadja dancing" loading="lazy">
                 </div>
-                <div class="about-text">
+                <div class="about-text fade-in-section">
                     <h2>About Nadja</h2>
                     <p>With long blonde hair and an infectious smile, Nadja brings energy and joy to every dance. Based in the stunning coastal city of Larnaca, Cyprus, she combines the beauty of Mediterranean beaches with the pure happiness of movement.</p>
                     <p>Every video captures authentic moments of joy, carefree dancing, and the vibrant summer atmosphere that makes Cyprus special.</p>
@@ -219,7 +249,6 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
     <script>
         // Music Stack Players
         document.addEventListener('DOMContentLoaded', function() {
@@ -305,21 +334,66 @@
             }, { once: true });
         });
 
-        // Fade out hero buttons on scroll
-        let lastScrollY = window.scrollY;
+        // Fade out hero buttons and scroll indicator on scroll
         const heroButtons = document.querySelector('.hero-buttons');
-        const fadeThreshold = 100; // Start fading after 100px scroll
+        const scrollIndicator = document.getElementById('scrollIndicator');
+        const navbar = document.getElementById('navbar');
+        const fadeThreshold = 100;
 
         window.addEventListener('scroll', function() {
             const scrollY = window.scrollY;
             
+            // Fade out buttons and indicator
             if (scrollY > fadeThreshold) {
                 heroButtons.classList.add('fade-out');
+                scrollIndicator.classList.add('fade-out');
             } else {
                 heroButtons.classList.remove('fade-out');
+                scrollIndicator.classList.remove('fade-out');
             }
             
-            lastScrollY = scrollY;
+            // Show navbar on scroll
+            if (scrollY > 200) {
+                navbar.classList.add('visible');
+            } else {
+                navbar.classList.remove('visible');
+            }
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in sections
+        document.querySelectorAll('.fade-in-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && href.length > 1) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
         });
     </script>
 </body>

@@ -1,0 +1,196 @@
+{
+  "voice_profile_name": "Nadja Voice Profile",
+  "version": "1.0",
+  "created_date": "2025-11-05",
+  "source_sample": {
+    "file": "/nadja_voice_samples/8cc6f396-2365-4505-b1dd-2064dc388d88.mp3",
+    "video_source": "Beach scene 9:16 portrait video",
+    "transcript": "I love the ocean. It's so beautiful.",
+    "duration": "~7 seconds",
+    "quality": "Contains background ocean waves"
+  },
+  
+  "voice_characteristics": {
+    "gender": "Female",
+    "age_range": "20s to early 30s",
+    "accent": "General American",
+    "pitch": {
+      "level": "Medium to medium-high female pitch",
+      "modulation": "Significant pitch variation with emotional expression",
+      "range": "Rises and falls naturally with enthusiasm"
+    },
+    "tone": {
+      "primary": "Warm and inviting",
+      "emotional": "Joyful, happy, enthusiastic",
+      "quality": "Highly expressive with 'smiling' tone"
+    },
+    "voice_quality": {
+      "warmth": "Warm",
+      "clarity": "Clear with good diction and enunciation",
+      "breathiness": "Slight breathiness, especially during laughter",
+      "unique_features": [
+        "Laugh-talk quality (speech blends with audible laughter)",
+        "Breathy quality integrated into speech",
+        "Lyrical, emotive intonation"
+      ]
+    },
+    "speaking_style": {
+      "pace": "Moderate to slow, expressive",
+      "rhythm": "Lyrical, almost sing-song quality",
+      "energy": "High, enthusiastic, upward inflection",
+      "emphasis": "Lingers on key emotional words"
+    }
+  },
+  
+  "tts_generation_guidelines": {
+    "recommended_models": [
+      "fal-ai/minimax/speech-2.6-hd (for multilingual)",
+      "elevenlabs/v3-tts (for expressive emotional content)",
+      "google/gemini-2.5-pro-preview-tts (for high quality)"
+    ],
+    "voice_parameters": {
+      "emotion": "joyful, enthusiastic, warm",
+      "style_descriptors": [
+        "friendly",
+        "expressive",
+        "natural",
+        "youthful",
+        "warm"
+      ],
+      "speed": "0.9-1.0 (slightly slower for expressiveness)",
+      "pitch_modifier": "+2 to +5 (slightly higher, feminine)",
+      "energy": "high"
+    },
+    "content_suitability": {
+      "best_for": [
+        "Upbeat promotional content",
+        "Enthusiastic product descriptions",
+        "Friendly greetings and welcomes",
+        "Positive lifestyle content",
+        "Beach/vacation narratives",
+        "Social media stories"
+      ],
+      "avoid": [
+        "Serious news or formal content",
+        "Sad or melancholic content",
+        "Technical or monotone reading"
+      ]
+    }
+  },
+  
+  "song_generation_guidelines": {
+    "recommended_models": [
+      "mureka/song-generator (for vocals with lyrics)",
+      "fal-ai/minimax-music/v2 (for structured songs)",
+      "official/pixverse/v5 (for music video integration)"
+    ],
+    "vocal_style": {
+      "genre_suitability": [
+        "Pop",
+        "Dance-Pop",
+        "Tropical House",
+        "Beach House",
+        "Feel-good Indie Pop",
+        "Summer Anthems"
+      ],
+      "vocal_characteristics": [
+        "Bright and cheerful",
+        "Breathy pop vocals",
+        "Expressive and emotive",
+        "High energy",
+        "Natural vibrato"
+      ],
+      "style_references": {
+        "mood": "Upbeat, joyful, carefree",
+        "energy": "High, enthusiastic",
+        "delivery": "Natural, conversational, with emotional expression"
+      }
+    },
+    "lyric_guidelines": {
+      "themes": [
+        "Ocean and beach life",
+        "Joy and happiness",
+        "Freedom and carefreeness",
+        "Summer vibes",
+        "Natural beauty",
+        "Positive emotions"
+      ],
+      "style": "Simple, direct, emotionally expressive",
+      "example_phrases": [
+        "I love the ocean",
+        "It's so beautiful",
+        "Feel the sunshine",
+        "Dancing by the waves",
+        "Golden moment"
+      ]
+    }
+  },
+  
+  "voice_cloning_recommendations": {
+    "status": "Current sample NOT suitable for direct cloning",
+    "issues": [
+      "Too much background noise (ocean waves)",
+      "Too short (only 2 sentences, ~4 seconds of actual speech)",
+      "Lacks tonal variety (only one emotional state)"
+    ],
+    "for_future_cloning": {
+      "required_quality": {
+        "environment": "Clean, quiet indoor space - NO background noise",
+        "duration": "15-30+ minutes of clean speech",
+        "content_variety": [
+          "Neutral declarative statements",
+          "Questions and interrogatives",
+          "Emotional expressions (happy, excited, calm, thoughtful)",
+          "Conversational speech",
+          "Reading passages",
+          "Spontaneous storytelling"
+        ],
+        "technical_specs": {
+          "sample_rate": "44.1-48 kHz",
+          "bit_depth": "16-bit or higher",
+          "format": "WAV or high-quality MP3",
+          "microphone": "Good quality with pop filter",
+          "levels": "Clear signal, no clipping, minimal noise floor"
+        }
+      },
+      "recording_setup": {
+        "location": "Quiet room with soft furnishings (reduces echo)",
+        "microphone_distance": "6-8 inches from mouth",
+        "avoid": [
+          "Wind noise",
+          "Ocean/water sounds",
+          "Traffic or outdoor noise",
+          "Room echo or reverb",
+          "Breathing too close to mic"
+        ]
+      }
+    }
+  },
+  
+  "usage_examples": {
+    "tts_prompt_template": "A warm, enthusiastic young woman in her mid-20s with a bright, expressive voice. She speaks with joyful energy and a natural smile in her voice. The tone is friendly, inviting, and full of positive emotion. Style: upbeat, cheerful, conversational.",
+    
+    "song_generation_prompt_template": "Female vocals, bright and cheerful pop style, breathy and expressive delivery, youthful energy (mid-20s), warm and inviting tone, natural vibrato, emotional and engaging performance, tropical/beach house vibes, upbeat summer anthem feel",
+    
+    "style_keywords": [
+      "warm",
+      "joyful",
+      "enthusiastic",
+      "expressive",
+      "youthful",
+      "breathy",
+      "natural",
+      "friendly",
+      "inviting",
+      "energetic",
+      "emotional",
+      "upbeat"
+    ]
+  },
+  
+  "integration_notes": {
+    "character_consistency": "Use together with NADJA_CHARACTER_PROFILE_V4.0_COMPLETE.json for full audiovisual consistency",
+    "ai_video_generation": "Voice profile matches the visual character profile - both emphasize joy, warmth, and natural beach aesthetics",
+    "brand_alignment": "Voice perfectly matches TINI.AI brand identity: authentic, joyful, beach-lifestyle, AI-powered content creation"
+  }
+}
