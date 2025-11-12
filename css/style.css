@@ -121,6 +121,43 @@ html {
     animation: fadeInUp 0.8s ease forwards 1.5s;
 }
 
+/* Spotify Coming Soon Badge */
+.spotify-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 10px 16px;
+    background: linear-gradient(135deg, #1DB954, #1ed760);
+    color: var(--white);
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    box-shadow: 0 8px 32px rgba(29, 185, 84, 0.3);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    flex-shrink: 0;
+    animation: spotifyPulse 2s ease-in-out infinite;
+}
+
+.spotify-badge i {
+    font-size: 1.2rem;
+}
+
+.spotify-badge:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 40px rgba(29, 185, 84, 0.5);
+}
+
+@keyframes spotifyPulse {
+    0%, 100% {
+        box-shadow: 0 8px 32px rgba(29, 185, 84, 0.3);
+    }
+    50% {
+        box-shadow: 0 8px 32px rgba(29, 185, 84, 0.6);
+    }
+}
+
 .music-stack::after {
     content: '→';
     position: absolute;
