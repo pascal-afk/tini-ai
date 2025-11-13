@@ -266,6 +266,34 @@
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
+/* Gallery Placeholder */
+.gallery-placeholder {
+    grid-column: 1 / -1;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg,
+        rgba(255, 107, 157, 0.05) 0%,
+        rgba(255, 193, 69, 0.05) 100%
+    );
+    border-radius: 16px;
+    text-align: center;
+    padding: 3rem;
+}
+
+.placeholder-content h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.placeholder-content p {
+    font-size: 1.2rem;
+    color: var(--text-light);
+}
+
 /* Call to Action */
 .collab-cta {
     padding: 6rem 2rem;
