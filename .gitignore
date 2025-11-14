@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+
+# Cloudflare
+.wrangler/
+wrangler.toml
+.dev.vars
+
+# Large audio files (too big for Cloudflare Pages 25MB limit)
+audio/ocean-dance-radio-edit-MASTER.wav
+audio/*.wav
+
+# Backup and temporary files
+*.backup
+*.bak
+*.tmp
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+logs/
