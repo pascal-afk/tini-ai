@@ -33,7 +33,7 @@
 ### Design Elements ✅
 - [x] TINI's profile photo featured
 - [x] Text: "Hi, I'm TINI"
-- [x] Title: "OCEAN DANCE"
+- [x] Title: "Ocean Dance"
 - [x] Instagram handle: @tini.aii
 - [x] Ocean/beach theme colors
 - [x] Professional typography
