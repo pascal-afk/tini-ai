@@ -1,8 +1,8 @@
 # Tini AI - Dance & Joy from Cyprus
 
 ## Projektübersicht
-- **Name**: Tini AI
-- **Beschreibung**: Moderne Website für Nadja - Dance Content Creator aus Zypern
+- **Name**: TINI AI
+- **Beschreibung**: Moderne Website für TINI - Dance Content Creator aus Zypern
 - **Typ**: Statische Website mit Video-Showcase
 - **Ziel**: Präsentation von Dance Reels und Buchungsmöglichkeiten
 
