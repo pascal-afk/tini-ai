@@ -28,9 +28,9 @@ Explicit Content: No
 ```
 Primary Artist: TINI
 Featured Artists: (none)
-Songwriter: TINI
-Composer: TINI
-Producer: TINI
+Songwriter: RA LUECHT ADVISORY LTD
+Composer: RA LUECHT ADVISORY LTD
+Producer: RA LUECHT ADVISORY LTD
 ```
 
 ---
@@ -43,7 +43,7 @@ Album Artist: TINI
 Compilation: No
 Previously Released: No
 Label Name: TINI Records
-Copyright: © 2025 TINI
+Copyright: © 2025 RA LUECHT ADVISORY LTD
 Copyright Year: 2025
 ```
 
@@ -63,9 +63,9 @@ Recording Location: Larnaca, Cyprus
 ### **PUBLISHING RIGHTS**
 
 ```
-Publisher: TINI
+Publisher: RA LUECHT ADVISORY LTD
 Ownership: 100%
-Publishing Split: TINI - 100%
+Publishing Split: RA LUECHT ADVISORY LTD - 100%
 ```
 
 ---
@@ -280,6 +280,8 @@ Stream it NOW - link in bio! 💙
 Let me know what you think in the comments! 👇
 
 #OceanDance #OutNow #NowOnSpotify #TINI #NewMusic #TINIRecords
+
+℗ 2025 RA LUECHT ADVISORY LTD
 ```
 
 ---
@@ -294,7 +296,9 @@ Let me know what you think in the comments! 👇
 - [x] Recording Location: Larnaca, Cyprus ✅
 - [x] Genre: Dance / Pop
 - [x] Lyrics: Complete
-- [x] Copyright: © 2025 TINI
+- [x] Songwriter/Composer/Producer: RA LUECHT ADVISORY LTD ✅
+- [x] Publisher: RA LUECHT ADVISORY LTD ✅
+- [x] Copyright: © 2025 RA LUECHT ADVISORY LTD ✅
 
 ### **Files Ready:**
 - [x] Master WAV (44.1kHz, 16-bit, Stereo) - 30 MB
@@ -320,6 +324,7 @@ Let me know what you think in the comments! 👇
 🎵 Ocean Dance
    TINI · TINI Records
    Single · 2025 · 1 song, 2 min 52 sec
+   ℗ 2025 RA LUECHT ADVISORY LTD
 ```
 
 **Artist Profile:**
@@ -328,6 +333,11 @@ TINI
 TINI Records
 Based in Cyprus
 Genre: Dance, Pop, Tropical House
+
+Credits:
+Songwriter: RA LUECHT ADVISORY LTD
+Publisher: RA LUECHT ADVISORY LTD
+© 2025 RA LUECHT ADVISORY LTD
 ```
 
 ---

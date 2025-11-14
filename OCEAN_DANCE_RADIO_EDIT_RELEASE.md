@@ -3,6 +3,9 @@
 **Erstellt**: 2025-11-14
 **Status**: ✅ Ready for Distribution
 **Artist**: TINI (@tini.aii)
+**Label**: TINI Records
+**Copyright**: © 2025 RA LUECHT ADVISORY LTD
+**Publisher**: RA LUECHT ADVISORY LTD
 
 ---
 
