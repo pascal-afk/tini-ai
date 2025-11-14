@@ -283,7 +283,7 @@ Monitor which version is most popular:
 
 ### **Showcases AI Capabilities:**
 - ✅ Same lyrics, 3 different styles
-- ✅ Nadja's voice consistent across all
+- ✅ TINI's voice consistent across all
 - ✅ Professional production quality
 - ✅ Genre versatility
 - ✅ TINI.AI's music generation power

@@ -1,14 +1,14 @@
-# 🎵 "Ocean Dance" - Nadja's Instagram Song
+# 🎵 "Ocean Dance" - TINI's Instagram Song
 
 ## 📋 Song Details
 
 - **Title**: Ocean Dance (Instagram Version)
-- **Artist**: Nadja (TINI.AI)
+- **Artist**: TINI (TINI.AI)
 - **Duration**: ~77 seconds (full version, 30s hook included)
 - **Genre**: Tropical Pop / Beach House / Summer Anthem
 - **Style**: Kygo meets tropical pop, danceable beat
 - **Created**: 2025-11-05
-- **File**: `nadja_ocean_dance_instagram_30s.mp3` (3.0MB)
+- **File**: `tini_ocean_dance_instagram_30s.mp3` (3.0MB)
 
 ---
 
@@ -67,7 +67,7 @@ Drop a 🌊 if you love beach dancing!
 ### **Visual Concepts**
 
 1. **Opening Shot** (0-5s)
-   - Nadja standing at water's edge, looking at camera
+   - TINI standing at water's edge, looking at camera
    - Ocean waves in background
    - Golden hour lighting
 
@@ -84,7 +84,7 @@ Drop a 🌊 if you love beach dancing!
    - Camera circling movement
 
 4. **Bridge** (25-35s)
-   - Close-up of Nadja's smile
+   - Close-up of TINI's smile
    - Looking at audience/camera
    - Inviting gesture ("Can you feel it too?")
 
@@ -260,7 +260,7 @@ Create more songs with similar themes:
 ## 🎵 Audio Files
 
 ### **Main File**
-- **Filename**: `nadja_ocean_dance_instagram_30s.mp3`
+- **Filename**: `tini_ocean_dance_instagram_30s.mp3`
 - **Size**: 3.0MB
 - **Duration**: 77 seconds (full song with extended outro)
 - **Quality**: High (Instagram-ready)
@@ -268,7 +268,7 @@ Create more songs with similar themes:
 
 ### **Location**
 ```
-/home/user/webapp/nadja_ocean_dance_instagram_30s.mp3
+/home/user/webapp/tini_ocean_dance_instagram_30s.mp3
 ```
 
 ---
@@ -282,14 +282,14 @@ Create more songs with similar themes:
    - Beach setting ideal
 
 2. **New AI Video Generation**
-   - Use Nadja Character Profile V4.0
+   - Use TINI Character Profile V4.0
    - Generate dance sequences
    - Beach setting, golden hour
    - Style: Natural, joyful, expressive
 
 ### **AI Video Generation Prompt**
 ```
-Nadja, a young woman in her mid-20s with long golden blonde hair and bright 
+TINI, a young woman in her mid-20s with long golden blonde hair and bright 
 yellow t-shirt, dancing joyfully on Cyprus beach at golden hour. Wide smile, 
 expressive movements, barefoot on golden sand, ocean waves in background, 
 Mediterranean sunset lighting, natural authentic beauty, energetic dance moves, 
@@ -364,7 +364,7 @@ cinematic 16:9 format, high quality, vibrant colors
 *Created: 2025-11-05*
 *Version: 1.0*
 *For: TINI.AI Instagram Content*
-*Artist: Nadja*
+*Artist: TINI*
 
 ---
 

@@ -1,9 +1,9 @@
 {
-  "voice_profile_name": "Nadja Voice Profile",
+  "voice_profile_name": "TINI Voice Profile",
   "version": "1.0",
   "created_date": "2025-11-05",
   "source_sample": {
-    "file": "/nadja_voice_samples/8cc6f396-2365-4505-b1dd-2064dc388d88.mp3",
+    "file": "/tini_voice_samples/8cc6f396-2365-4505-b1dd-2064dc388d88.mp3",
     "video_source": "Beach scene 9:16 portrait video",
     "transcript": "I love the ocean. It's so beautiful.",
     "duration": "~7 seconds",
@@ -189,7 +189,7 @@
   },
   
   "integration_notes": {
-    "character_consistency": "Use together with NADJA_CHARACTER_PROFILE_V4.0_COMPLETE.json for full audiovisual consistency",
+    "character_consistency": "Use together with TINI_CHARACTER_PROFILE_V4.0_COMPLETE.json for full audiovisual consistency",
     "ai_video_generation": "Voice profile matches the visual character profile - both emphasize joy, warmth, and natural beach aesthetics",
     "brand_alignment": "Voice perfectly matches TINI.AI brand identity: authentic, joyful, beach-lifestyle, AI-powered content creation"
   }

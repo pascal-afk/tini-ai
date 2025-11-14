@@ -1,4 +1,4 @@
-# 🎤 Nadja Voice Recreation Guide
+# 🎤 TINI Voice Recreation Guide
 
 ## ✅ Erfolgreich erstellt am: 2025-11-05
 
@@ -6,7 +6,7 @@
 
 ## 📋 Übersicht
 
-Dieses Dokument beschreibt, wie Nadjas Stimme aus dem Beach-Video extrahiert, analysiert und für zukünftige Song-Generierung verwendet werden kann.
+Dieses Dokument beschreibt, wie TINIs Stimme aus dem Beach-Video extrahiert, analysiert und für zukünftige Song-Generierung verwendet werden kann.
 
 ---
 
@@ -14,17 +14,17 @@ Dieses Dokument beschreibt, wie Nadjas Stimme aus dem Beach-Video extrahiert, an
 
 ### ✅ 1. Audio-Extraktion
 - **Quelle**: 9:16 Beach Portrait Video
-- **Extrahierte Datei**: `/nadja_voice_samples/8cc6f396-2365-4505-b1dd-2064dc388d88.mp3`
+- **Extrahierte Datei**: `/tini_voice_samples/8cc6f396-2365-4505-b1dd-2064dc388d88.mp3`
 - **Transkript**: "I love the ocean. It's so beautiful."
 - **Dauer**: ~7 Sekunden (4 Sekunden reine Sprache)
 
 ### ✅ 2. Voice Profile erstellt
-- **Datei**: `NADJA_VOICE_PROFILE.json` (6.6KB)
+- **Datei**: `TINI_VOICE_PROFILE.json` (6.6KB)
 - **Inhalt**: Vollständige Stimm-Charakteristika-Analyse
 - **Verwendbar für**: TTS und Song-Generierung
 
 ### ✅ 3. Demo-Song generiert
-- **Datei**: `nadja_voice_demo_song.mp3` (4.2MB, 107 Sekunden)
+- **Datei**: `tini_voice_demo_song.mp3` (4.2MB, 107 Sekunden)
 - **Model**: Mureka Song Generator
 - **Style**: Bright cheerful pop, tropical beach house vibes
 - **Lyrics**: Ocean-themed, basierend auf Original-Sample
@@ -54,7 +54,7 @@ Dieses Dokument beschreibt, wie Nadjas Stimme aus dem Beach-Video extrahiert, an
 
 ---
 
-## 🎵 Song-Generierung mit Nadjas Stimme
+## 🎵 Song-Generierung mit TINIs Stimme
 
 ### **Empfohlene AI-Modelle**
 
@@ -151,9 +151,9 @@ friendly, inviting, energetic, emotional, upbeat
 
 ## 🎯 Demo-Song Details
 
-### **"Ocean Dreams" - Nadja Voice Demo**
+### **"Ocean Dreams" - TINI Voice Demo**
 
-**Datei**: `nadja_voice_demo_song.mp3`
+**Datei**: `tini_voice_demo_song.mp3`
 **Dauer**: 107 Sekunden (1:47)
 **Model**: Mureka Song Generator
 **URL**: https://cdn1.genspark.ai/user-upload-image/4/4b9335b8-ef72-40ca-8e86-d3c3dda4efb4.mp3
@@ -267,9 +267,9 @@ Wenn Sie in Zukunft ein **perfektes Voice Clone** erstellen wollen:
 ## 🔗 Integration mit Character Profile
 
 ### **Audiovisuelle Konsistenz**
-Nadjas Voice Profile sollte **zusammen** verwendet werden mit:
-- `NADJA_CHARACTER_PROFILE_V4.0_COMPLETE.json` (Visual)
-- `NADJA_VOICE_PROFILE.json` (Audio)
+TINIs Voice Profile sollte **zusammen** verwendet werden mit:
+- `TINI_CHARACTER_PROFILE_V4.0_COMPLETE.json` (Visual)
+- `TINI_VOICE_PROFILE.json` (Audio)
 
 ### **Brand Alignment**
 Beide Profile matchen perfekt die **TINI.AI Brand Identity**:
@@ -286,18 +286,18 @@ Beide Profile matchen perfekt die **TINI.AI Brand Identity**:
 ### **Audio Files**
 ```
 /home/user/webapp/
-├── nadja_voice_sample.mp4              # Original Video (1.7MB)
-├── nadja_voice_demo_song.mp3           # Demo Song (4.2MB, 107s)
-└── /nadja_voice_samples/
+├── tini_voice_sample_video.mp4         # Original Video (1.7MB)
+├── tini_voice_demo_song.mp3            # Demo Song (4.2MB, 107s)
+└── /tini_voice_samples/
     └── 8cc6f396...mp3                  # Extrahiertes Audio (194KB)
 ```
 
 ### **Documentation Files**
 ```
 /home/user/webapp/
-├── NADJA_VOICE_PROFILE.json            # Voice Characteristics (6.6KB)
-├── NADJA_VOICE_GUIDE.md                # Dieses Dokument
-└── NADJA_CHARACTER_PROFILE_V4.0_COMPLETE.json  # Visual Profile (20KB)
+├── TINI_VOICE_PROFILE.json             # Voice Characteristics (6.6KB)
+├── TINI_VOICE_GUIDE.md                 # Dieses Dokument
+└── TINI_CHARACTER_PROFILE_V4.0_COMPLETE.json  # Visual Profile (20KB)
 ```
 
 ---
@@ -336,7 +336,7 @@ Beide Profile matchen perfekt die **TINI.AI Brand Identity**:
 
 ## 🎉 Erfolg!
 
-**Nadjas Stimme ist jetzt dokumentiert und reproduzierbar!**
+**TINIs Stimme ist jetzt dokumentiert und reproduzierbar!**
 
 Sie können jederzeit:
 - ✅ Neue Songs in ihrem Stil generieren
@@ -350,4 +350,4 @@ Sie können jederzeit:
 
 *Erstellt: 2025-11-05*
 *Version: 1.0*
-*Für: TINI.AI - Nadja Character Voice Profile*
+*Für: TINI.AI - TINI Character Voice Profile*

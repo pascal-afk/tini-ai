@@ -7,13 +7,13 @@
 ## 🎯 Was wurde implementiert
 
 ### **Background Music Auto-Play**
-Die Website spielt jetzt automatisch Nadjas "Ocean Dance" Song ab, sobald die Seite geladen wird!
+Die Website spielt jetzt automatisch TINIs "Ocean Dance" Song ab, sobald die Seite geladen wird!
 
 ---
 
 ## 🎵 Song Details
 
-- **Song**: "Ocean Dance" by Nadja
+- **Song**: "Ocean Dance" by TINI
 - **Datei**: `audio/ocean-dance.mp3` (3.0MB)
 - **Dauer**: 77 Sekunden (Loop aktiviert)
 - **Lautstärke**: 40% (angenehm im Hintergrund)
@@ -26,7 +26,7 @@ Die Website spielt jetzt automatisch Nadjas "Ocean Dance" Song ab, sobald die Se
 ### **1. Floating Music Player**
 - ✅ Schwebt unten rechts auf der Seite
 - ✅ Elegantes Design mit Glasmorphismus-Effekt
-- ✅ Zeigt Song-Titel "Ocean Dance" und Artist "Nadja"
+- ✅ Zeigt Song-Titel "Ocean Dance" und Artist "TINI"
 - ✅ Animierter Play/Pause Button
 - ✅ Pulsierender Effekt während Wiedergabe
 
@@ -55,7 +55,7 @@ Die Website spielt jetzt automatisch Nadjas "Ocean Dance" Song ab, sobald die Se
     </button>
     <div class="music-info">
         <span class="music-title">Ocean Dance</span>
-        <span class="music-artist">Nadja</span>
+        <span class="music-artist">TINI</span>
     </div>
 </div>
 <audio id="backgroundMusic" loop>
@@ -230,7 +230,7 @@ Files Changed: 3
 ├── css/
 │   └── style.css                    (modified with music player styles)
 ├── index.html                       (modified with music player + script)
-├── nadja_ocean_dance_instagram_30s.mp3 (source file)
+├── tini_ocean_dance_instagram_30s.mp3 (source file)
 └── DEPLOYMENT_SUMMARY_MUSIC.md      (this file)
 ```
 
@@ -270,7 +270,7 @@ Files Changed: 3
 ### **Positive Reactions**
 - 🎵 "Love the music!"
 - 🌊 "Perfect beach vibes"
-- ✨ "Song matches Nadja's energy"
+- ✨ "Song matches TINI's energy"
 - 💃 "Makes me want to dance"
 - 🏖️ "Feels like summer in Cyprus"
 
@@ -327,7 +327,7 @@ Files Changed: 3
 ✅ Background music plays automatically (when browser allows)
 ✅ Elegant floating music player with controls
 ✅ Song loops continuously for ambient experience
-✅ Perfect match with Nadja's brand and beach theme
+✅ Perfect match with TINI's brand and beach theme
 ✅ Mobile-responsive and cross-browser compatible
 ✅ User can pause/play anytime with one click
 

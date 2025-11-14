@@ -2,7 +2,7 @@
 
 ## Projektübersicht
 - **Name**: Tini AI
-- **Beschreibung**: Moderne Website für Nadja - Dance Content Creator aus Zypern
+- **Beschreibung**: Moderne Website für TINI - Autonome AI Dance Content Creator aus Zypern
 - **Typ**: Statische Website mit Video-Showcase
 - **Ziel**: Präsentation von Dance Reels und Buchungsmöglichkeiten
 
