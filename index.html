@@ -42,51 +42,16 @@
             </div>
         </div>
     </nav>
-    <!-- Music Players Stack -->
-    <div class="music-stack" id="musicStack">
-        <!-- Spotify Badge -->
-        <div class="spotify-badge">
+    <!-- Spotify Release Badge -->
+    <div class="spotify-release-badge" id="spotifyBadge">
+        <div class="spotify-icon">
             <i class="fab fa-spotify"></i>
-            <span>Ocean Dance - Coming Soon</span>
         </div>
-        
-        <!-- Tropical Pop Player -->
-        <div class="music-player" data-track="tropical">
-            <button class="music-toggle" data-track="tropical" aria-label="Play Tropical">
-                <i class="fas fa-play"></i>
-            </button>
-            <div class="music-info">
-                <span class="music-title">🌴 Tropical</span>
-                <span class="music-artist">Ocean Dance</span>
-            </div>
-        </div>
-        
-        <!-- Hip-Hop Player -->
-        <div class="music-player" data-track="hiphop">
-            <button class="music-toggle" data-track="hiphop" aria-label="Play Hip-Hop">
-                <i class="fas fa-play"></i>
-            </button>
-            <div class="music-info">
-                <span class="music-title">🎤 Hip-Hop</span>
-                <span class="music-artist">Ocean Dance</span>
-            </div>
-        </div>
-        
-        <!-- Salsa Player -->
-        <div class="music-player" data-track="salsa">
-            <button class="music-toggle" data-track="salsa" aria-label="Play Salsa">
-                <i class="fas fa-play"></i>
-            </button>
-            <div class="music-info">
-                <span class="music-title">💃 Salsa</span>
-                <span class="music-artist">Ocean Dance</span>
-            </div>
+        <div class="spotify-info">
+            <div class="spotify-title">Ocean Dance</div>
+            <div class="spotify-subtitle">December 6, 2025</div>
         </div>
     </div>
-    
-    <audio id="backgroundMusic" loop>
-        <source src="audio/ocean-dance.mp3" type="audio/mpeg" id="audioSource">
-    </audio>
 
     <!-- Hero Section -->
     <header class="hero">
@@ -108,6 +73,59 @@
             <i class="fas fa-chevron-down"></i>
         </div>
     </header>
+
+    <!-- Ocean Dance Release Section -->
+    <section class="ocean-dance-release">
+        <div class="container">
+            <div class="release-card fade-in-section">
+                <div class="release-header">
+                    <div class="release-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <div class="release-title-block">
+                        <h2 class="release-title">🌊 Ocean Dance</h2>
+                        <p class="release-subtitle">My debut single • Coming December 6, 2025</p>
+                    </div>
+                </div>
+                
+                <div class="release-description">
+                    <p>A tropical house anthem about dancing on Cyprus beaches, feeling the ocean breeze, and living in the moment. Dance-Pop meets Mediterranean vibes.</p>
+                </div>
+
+                <div class="presave-incentive">
+                    <div class="incentive-header">
+                        <i class="fas fa-gift"></i>
+                        <h3>Pre-Save Now & Get a FREE Bonus Track!</h3>
+                    </div>
+                    <p class="incentive-text">
+                        Be one of the first to hear Ocean Dance on December 6th! Pre-save now on Spotify 
+                        and receive <strong>"Cyprus Sun"</strong> - an exclusive bonus track created just for early supporters.
+                    </p>
+                    <div class="incentive-buttons">
+                        <a href="#" class="presave-btn primary" onclick="alert('Pre-save link coming November 25, 2025!'); return false;">
+                            <i class="fab fa-spotify"></i> Pre-Save on Spotify
+                        </a>
+                        <a href="tini-records.html" class="presave-btn secondary">
+                            <i class="fas fa-info-circle"></i> Learn More
+                        </a>
+                    </div>
+                    <p class="incentive-note">
+                        <i class="fas fa-clock"></i> Pre-save opens November 25 • Cyprus Sun sent immediately after pre-save
+                    </p>
+                </div>
+
+                <div class="release-platforms">
+                    <p>Also releasing on:</p>
+                    <div class="platform-icons">
+                        <i class="fab fa-apple"></i>
+                        <i class="fab fa-amazon"></i>
+                        <i class="fab fa-youtube"></i>
+                        <i class="fas fa-music"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Video Showcase Section -->
     <section id="videos" class="video-showcase">
@@ -257,91 +275,6 @@
     </footer>
 
     <script>
-        // Music Stack Players
-        document.addEventListener('DOMContentLoaded', function() {
-            const audio = document.getElementById('backgroundMusic');
-            const audioSource = document.getElementById('audioSource');
-            const players = document.querySelectorAll('.music-player');
-            const toggleButtons = document.querySelectorAll('.music-toggle');
-            
-            let isPlaying = false;
-            let currentTrack = null;
-            
-            const tracks = {
-                tropical: 'audio/ocean-dance.mp3',
-                hiphop: 'audio/ocean-dance-hiphop.mp3',
-                salsa: 'audio/ocean-dance-salsa.mp3'
-            };
-
-            // Play/Pause track
-            function playTrack(trackName) {
-                const wasPlaying = isPlaying && currentTrack === trackName;
-                
-                if (wasPlaying) {
-                    // Pause current track
-                    audio.pause();
-                    isPlaying = false;
-                    updateUI(trackName, false);
-                } else {
-                    // Switch or play track
-                    if (currentTrack !== trackName) {
-                        audioSource.src = tracks[trackName];
-                        audio.load();
-                        currentTrack = trackName;
-                    }
-                    
-                    audio.volume = 0.4;
-                    audio.play().then(() => {
-                        isPlaying = true;
-                        updateUI(trackName, true);
-                    }).catch(error => {
-                        console.log('Playback failed:', error);
-                        isPlaying = false;
-                        updateUI(trackName, false);
-                    });
-                }
-            }
-
-            // Update all UI elements
-            function updateUI(activeTrack, playing) {
-                players.forEach(player => {
-                    const track = player.dataset.track;
-                    const button = player.querySelector('.music-toggle');
-                    
-                    if (track === activeTrack && playing) {
-                        player.classList.add('playing');
-                        button.innerHTML = '<i class="fas fa-pause"></i>';
-                    } else {
-                        player.classList.remove('playing');
-                        button.innerHTML = '<i class="fas fa-play"></i>';
-                    }
-                });
-            }
-
-            // Add click listeners
-            toggleButtons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    playTrack(this.dataset.track);
-                });
-            });
-
-            // Auto-play first track on first user interaction only
-            let hasInteracted = false;
-            const tryAutoPlay = function() {
-                if (!hasInteracted && !isPlaying) {
-                    hasInteracted = true;
-                    playTrack('tropical');
-                }
-            };
-            
-            // Try auto-play after delay
-            setTimeout(tryAutoPlay, 500);
-            
-            // Fallback on first click if auto-play failed
-            document.addEventListener('click', tryAutoPlay, { once: true });
-        });
-
         // Fade out hero buttons and scroll indicator on scroll
         const heroButtons = document.querySelector('.hero-buttons');
         const scrollIndicator = document.getElementById('scrollIndicator');
