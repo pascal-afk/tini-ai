@@ -823,51 +823,40 @@ body {
 .footer {
     background: var(--text-dark);
     color: var(--white);
-    padding: 1.5rem 0;
+    padding: 2rem 0;
     text-align: center;
 }
 
-.footer-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 2rem;
-    position: relative;
+.footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
 }
 
-.footer-copyright {
+.footer-text {
     font-size: 0.9rem;
     opacity: 0.9;
-    margin: 0;
+    margin: 0 0 0.8rem 0;
 }
 
-.footer-right {
-    position: absolute;
-    right: 0;
-    bottom: 0;
+.footer-links-bottom {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 1rem;
+    font-size: 0.9rem;
 }
 
-.footer-right a {
+.footer-links-bottom a {
     color: var(--white);
     text-decoration: none;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
     opacity: 0.9;
+    transition: all 0.3s ease;
 }
 
-.footer-right a i {
-    font-size: 0.9rem;
-}
-
-.footer-right a:hover {
+.footer-links-bottom a:hover {
     color: var(--primary-color);
     opacity: 1;
-    transform: none;
-    text-decoration: none;
 }
 
 /* Animations */
@@ -949,17 +938,14 @@ body {
         gap: 1rem;
     }
 
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
-        gap: 1rem;
+    .footer-text {
+        font-size: 0.85rem;
+        margin-bottom: 0.6rem;
     }
     
-    .footer-right {
-        position: relative;
-        right: auto;
-        bottom: auto;
-        justify-content: center;
+    .footer-links-bottom {
+        font-size: 0.85rem;
+        gap: 0.8rem;
     }
 }
 
