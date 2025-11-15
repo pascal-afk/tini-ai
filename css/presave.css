@@ -1,0 +1,338 @@
+/* Pre-Save Modal Styles */
+
+.presave-modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.presave-modal-content {
+    background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+    padding: 3rem;
+    border-radius: 20px;
+    max-width: 500px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.4s ease;
+}
+
+.presave-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.presave-modal-close:hover {
+    background: #f0f0f0;
+    color: #333;
+    transform: rotate(90deg);
+}
+
+.presave-modal-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.presave-modal-header i {
+    font-size: 3rem;
+    color: #1DB954;
+    margin-bottom: 1rem;
+}
+
+.presave-modal-header h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.presave-modal-header p {
+    font-size: 1.1rem;
+    color: #666;
+}
+
+.presave-step {
+    animation: fadeIn 0.3s ease;
+}
+
+.presave-step h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.presave-step p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+/* Spotify Button */
+.presave-spotify-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: #1DB954;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    justify-content: center;
+}
+
+.presave-spotify-btn:hover {
+    background: #1ed760;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(29, 185, 84, 0.3);
+}
+
+.presave-spotify-btn i {
+    font-size: 1.5rem;
+}
+
+.presave-note {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #999;
+    margin-top: 1rem;
+}
+
+/* Form Styles */
+.presave-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.presave-form input[type="email"] {
+    padding: 1rem 1.5rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.presave-form input[type="email"]:focus {
+    outline: none;
+    border-color: #1DB954;
+    box-shadow: 0 0 0 3px rgba(29, 185, 84, 0.1);
+}
+
+.presave-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.presave-checkbox input[type="checkbox"] {
+    margin-top: 0.25rem;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.presave-checkbox label {
+    font-size: 0.95rem;
+    color: #666;
+    cursor: pointer;
+    user-select: none;
+}
+
+.presave-submit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.presave-submit-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+
+.presave-submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.presave-privacy {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+/* Success State */
+.presave-success-icon {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.presave-success-icon i {
+    font-size: 4rem;
+    color: #1DB954;
+    animation: scaleIn 0.5s ease;
+}
+
+.presave-success-note {
+    background: #f0f9f4;
+    padding: 1.5rem;
+    border-radius: 15px;
+    border-left: 4px solid #1DB954;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: #333;
+}
+
+.presave-close-btn {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.presave-close-btn:hover {
+    background: #764ba2;
+    transform: translateY(-2px);
+}
+
+/* Error State */
+.presave-error {
+    text-align: center;
+}
+
+.presave-error i {
+    font-size: 3rem;
+    color: #e74c3c;
+    margin-bottom: 1rem;
+}
+
+.presave-retry-btn {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.presave-retry-btn:hover {
+    background: #c0392b;
+    transform: translateY(-2px);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .presave-modal-content {
+        padding: 2rem;
+        max-width: 95%;
+    }
+
+    .presave-modal-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .presave-modal-header i {
+        font-size: 2.5rem;
+    }
+
+    .presave-step h3 {
+        font-size: 1.25rem;
+    }
+
+    .presave-spotify-btn,
+    .presave-submit-btn {
+        font-size: 1rem;
+        padding: 0.875rem 1.5rem;
+    }
+}
