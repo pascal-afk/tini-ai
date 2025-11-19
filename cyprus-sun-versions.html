@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyprus Sun - Processed Versions | TINI Records</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            padding: 6rem 0 4rem 0;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero-section h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-section p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+        
+        .versions-section {
+            padding: 4rem 0;
+            background: var(--bg-cream);
+        }
+        
+        .version-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .version-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .version-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+        }
+        
+        .version-card.featured {
+            border: 3px solid #FFD700;
+            background: linear-gradient(135deg, #FFF9E6 0%, #FFFFFF 100%);
+        }
+        
+        .version-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .version-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+        
+        .version-icon.vocal-chop {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+        }
+        
+        .version-icon.lofi {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+        
+        .version-icon.pitch {
+            background: linear-gradient(135deg, #4ECDC4, #44A08D);
+        }
+        
+        .version-title h3 {
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            margin-bottom: 0.3rem;
+        }
+        
+        .version-subtitle {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        .version-description {
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        
+        .version-specs {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            font-size: 0.85rem;
+        }
+        
+        .version-specs ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .version-specs li {
+            padding: 0.3rem 0;
+            color: var(--text-light);
+        }
+        
+        .version-specs i {
+            color: var(--primary-color);
+            margin-right: 0.5rem;
+        }
+        
+        .audio-player {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 1rem;
+        }
+        
+        .player-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .play-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .play-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        .progress-bar {
+            flex: 1;
+            height: 6px;
+            background: #dee2e6;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 107, 157, 0.4);
+        }
+        
+        .info-box {
+            background: linear-gradient(135deg, #E3F2FD, #F3E5F5);
+            padding: 2rem;
+            border-radius: 20px;
+            margin: 3rem 0;
+            border-left: 5px solid var(--primary-color);
+        }
+        
+        .info-box h3 {
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .version-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sticky Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">@tini.aii</a>
+            <div class="nav-links">
+                <a href="index.html#videos" class="nav-link">Videos</a>
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="tini-records.html" class="nav-link">TINI Records</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1>☀️ Cyprus Sun - Professional Versions</h1>
+            <p>6 TuneCore-Ready Variations • AI Artifacts Removed • Content ID Safe</p>
+        </div>
+    </section>
+
+    <!-- Info Box -->
+    <section class="versions-section">
+        <div class="container">
+            <div class="info-box">
+                <h3>🎯 About These Versions</h3>
+                <p>
+                    These professionally processed versions were created to transform Cyprus Sun from an AI-generated 
+                    track into a <strong>TuneCore-compliant release</strong>. Each version has been carefully processed to:
+                </p>
+                <ul style="margin-top: 1rem; line-height: 1.8;">
+                    <li>✅ <strong>Remove AI artifacts</strong> using Telephone EQ (bandpass filtering)</li>
+                    <li>✅ <strong>Add analog warmth</strong> with saturation and distortion</li>
+                    <li>✅ <strong>Change sonic signature</strong> to avoid Content ID similarity matching</li>
+                    <li>✅ <strong>Maintain professional quality</strong> suitable for streaming platforms</li>
+                </ul>
+            </div>
+
+            <h2 class="section-title">🎵 Main Versions</h2>
+            <div class="version-grid">
+                <!-- Vocal Chop Version -->
+                <div class="version-card featured">
+                    <div class="version-header">
+                        <div class="version-icon vocal-chop">🎤</div>
+                        <div class="version-title">
+                            <h3>Vocal Chop <span style="background: linear-gradient(135deg, #FFD700, #FFA500); color: white; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.7rem; margin-left: 0.5rem;">RECOMMENDED</span></h3>
+                            <p class="version-subtitle">Professional Radio Mix</p>
+                        </div>
+                    </div>
+                    <p class="version-description">
+                        The best balance of quality and processing. Features moderate EQ, light saturation, 
+                        subtle reverb, and a -1 semitone pitch shift for a warmer, more organic sound.
+                    </p>
+                    <div class="version-specs">
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Telephone EQ (400-4000Hz)</li>
+                            <li><i class="fas fa-check-circle"></i> Moderate saturation (4dB)</li>
+                            <li><i class="fas fa-check-circle"></i> Light reverb (room 0.4)</li>
+                            <li><i class="fas fa-check-circle"></i> Pitch: -1 semitone</li>
+                            <li><i class="fas fa-check-circle"></i> Format: Stereo, 44.1kHz</li>
+                        </ul>
+                    </div>
+                    <div class="audio-player">
+                        <div class="player-controls">
+                            <button class="play-btn" data-track="vocal-chop" aria-label="Play Vocal Chop">
+                                <i class="fas fa-play"></i>
+                            </button>
+                            <div class="progress-bar" data-track="vocal-chop">
+                                <div class="progress-fill"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="audio/processed/cyprus_sun_vocal_chop.mp3" download class="download-btn">
+                        <i class="fas fa-download"></i> Download MP3 (2.3 MB)
+                    </a>
+                </div>
+
+                <!-- Lo-Fi Version -->
+                <div class="version-card">
+                    <div class="version-header">
+                        <div class="version-icon lofi">📻</div>
+                        <div class="version-title">
+                            <h3>Lo-Fi Version</h3>
+                            <p class="version-subtitle">Heavy Vintage Treatment</p>
+                        </div>
+                    </div>
+                    <p class="version-description">
+                        Aggressive lo-fi processing with narrow EQ, heavy saturation, and deep reverb. 
+                        Creates a nostalgic, vintage sound perfect for alternative/underground appeal.
+                    </p>
+                    <div class="version-specs">
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Aggressive EQ (500-3000Hz)</li>
+                            <li><i class="fas fa-check-circle"></i> Heavy saturation (10dB)</li>
+                            <li><i class="fas fa-check-circle"></i> Deep reverb (room 0.6)</li>
+                            <li><i class="fas fa-check-circle"></i> Format: Stereo, 44.1kHz</li>
+                        </ul>
+                    </div>
+                    <div class="audio-player">
+                        <div class="player-controls">
+                            <button class="play-btn" data-track="lofi" aria-label="Play Lo-Fi">
+                                <i class="fas fa-play"></i>
+                            </button>
+                            <div class="progress-bar" data-track="lofi">
+                                <div class="progress-fill"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="audio/processed/cyprus_sun_lofi.mp3" download class="download-btn">
+                        <i class="fas fa-download"></i> Download MP3 (2.4 MB)
+                    </a>
+                </div>
+            </div>
+
+            <h2 class="section-title">🎹 Pitch Variations</h2>
+            <p class="section-subtitle">Experimental versions for remixing and vocal chopping</p>
+            <div class="version-grid">
+                <!-- Pitch -3 -->
+                <div class="version-card">
+                    <div class="version-header">
+                        <div class="version-icon pitch">🔽</div>
+                        <div class="version-title">
+                            <h3>Pitch -3 Semitones</h3>
+                            <p class="version-subtitle">Deep & Masculine</p>
+                        </div>
+                    </div>
+                    <p class="version-description">Significantly deeper vocal character. Great for creating contrast or darker remixes.</p>
+                    <div class="audio-player">
+                        <div class="player-controls">
+                            <button class="play-btn" data-track="pitch-minus-3" aria-label="Play Pitch -3">
+                                <i class="fas fa-play"></i>
+                            </button>
+                            <div class="progress-bar" data-track="pitch-minus-3">
+                                <div class="progress-fill"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="audio/processed/cyprus_sun_pitch_-3st.mp3" download class="download-btn">
+                        <i class="fas fa-download"></i> Download MP3 (1.2 MB)
+                    </a>
+                </div>
+
+                <!-- Pitch -1 -->
+                <div class="version-card">
+                    <div class="version-header">
+                        <div class="version-icon pitch">⬇️</div>
+                        <div class="version-title">
+                            <h3>Pitch -1 Semitone</h3>
+                            <p class="version-subtitle">Warmer & Richer</p>
+                        </div>
+                    </div>
+                    <p class="version-description">Subtle warmth added. Maintains original character while adding depth.</p>
+                    <div class="audio-player">
+                        <div class="player-controls">
+                            <button class="play-btn" data-track="pitch-minus-1" aria-label="Play Pitch -1">
+                                <i class="fas fa-play"></i>
+                            </button>
+                            <div class="progress-bar" data-track="pitch-minus-1">
+                                <div class="progress-fill"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="audio/processed/cyprus_sun_pitch_-1st.mp3" download class="download-btn">
+                        <i class="fas fa-download"></i> Download MP3 (1.2 MB)
+                    </a>
+                </div>
+
+                <!-- Pitch +1 -->
+                <div class="version-card">
+                    <div class="version-header">
+                        <div class="version-icon pitch">⬆️</div>
+                        <div class="version-title">
+                            <h3>Pitch +1 Semitone</h3>
+                            <p class="version-subtitle">Brighter & Energetic</p>
+                        </div>
+                    </div>
+                    <p class="version-description">More brightness and energy. Slightly more uplifting feel.</p>
+                    <div class="audio-player">
+                        <div class="player-controls">
+                            <button class="play-btn" data-track="pitch-plus-1" aria-label="Play Pitch +1">
+                                <i class="fas fa-play"></i>
+                            </button>
+                            <div class="progress-bar" data-track="pitch-plus-1">
+                                <div class="progress-fill"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="audio/processed/cyprus_sun_pitch_+1st.mp3" download class="download-btn">
+                        <i class="fas fa-download"></i> Download MP3 (1.2 MB)
+                    </a>
+                </div>
+
+                <!-- Pitch +3 -->
+                <div class="version-card">
+                    <div class="version-header">
+                        <div class="version-icon pitch">🔼</div>
+                        <div class="version-title">
+                            <h3>Pitch +3 Semitones</h3>
+                            <p class="version-subtitle">High & Ethereal</p>
+                        </div>
+                    </div>
+                    <p class="version-description">Significantly higher pitch. Creates an airy, ethereal atmosphere.</p>
+                    <div class="audio-player">
+                        <div class="player-controls">
+                            <button class="play-btn" data-track="pitch-plus-3" aria-label="Play Pitch +3">
+                                <i class="fas fa-play"></i>
+                            </button>
+                            <div class="progress-bar" data-track="pitch-plus-3">
+                                <div class="progress-fill"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="audio/processed/cyprus_sun_pitch_+3st.mp3" download class="download-btn">
+                        <i class="fas fa-download"></i> Download MP3 (1.2 MB)
+                    </a>
+                </div>
+            </div>
+
+            <!-- Next Steps -->
+            <div class="info-box" style="margin-top: 4rem;">
+                <h3>🚀 Next Steps</h3>
+                <ol style="line-height: 2;">
+                    <li><strong>Listen to all versions</strong> and choose your favorite</li>
+                    <li><strong>Recommended for TuneCore:</strong> Use "Vocal Chop" version (highest quality)</li>
+                    <li><strong>Optional:</strong> Send to Fiverr producer for formant shifting & final mastering ($150-250)</li>
+                    <li><strong>Upload to TuneCore</strong> and cross fingers! 🤞</li>
+                </ol>
+                <p style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 2px solid rgba(0,0,0,0.1);">
+                    <strong>📄 Full Technical Report:</strong> 
+                    <a href="CYPRUS_SUN_PROCESSING_REPORT.md" style="color: var(--primary-color); font-weight: 600;">
+                        View Processing Report →
+                    </a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">&copy; 2025 TINI • Dance & Joy <i class="fas fa-music"></i> from Cyprus</p>
+            <div class="footer-links-bottom">
+                <a href="https://instagram.com/tini.aii" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="legal.html">Legal</a>
+                <a href="privacy.html">Privacy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Audio Players
+        document.addEventListener('DOMContentLoaded', function() {
+            const tracks = {
+                'vocal-chop': 'audio/processed/cyprus_sun_vocal_chop.mp3',
+                'lofi': 'audio/processed/cyprus_sun_lofi.mp3',
+                'pitch-minus-3': 'audio/processed/cyprus_sun_pitch_-3st.mp3',
+                'pitch-minus-1': 'audio/processed/cyprus_sun_pitch_-1st.mp3',
+                'pitch-plus-1': 'audio/processed/cyprus_sun_pitch_+1st.mp3',
+                'pitch-plus-3': 'audio/processed/cyprus_sun_pitch_+3st.mp3'
+            };
+
+            let currentAudio = null;
+            let currentTrack = null;
+
+            const playButtons = document.querySelectorAll('.play-btn');
+            const progressBars = document.querySelectorAll('.progress-bar');
+
+            playButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const trackName = this.dataset.track;
+                    
+                    if (currentAudio && currentTrack === trackName && !currentAudio.paused) {
+                        currentAudio.pause();
+                        this.innerHTML = '<i class="fas fa-play"></i>';
+                        return;
+                    }
+
+                    if (currentAudio && currentTrack !== trackName) {
+                        currentAudio.pause();
+                        currentAudio.currentTime = 0;
+                        updateButton(currentTrack, 'play');
+                        updateProgress(currentTrack, 0);
+                    }
+
+                    if (!currentAudio || currentTrack !== trackName) {
+                        currentAudio = new Audio(tracks[trackName]);
+                        currentTrack = trackName;
+                        
+                        currentAudio.addEventListener('timeupdate', function() {
+                            const progress = (currentAudio.currentTime / currentAudio.duration) * 100;
+                            updateProgress(trackName, progress);
+                        });
+
+                        currentAudio.addEventListener('ended', function() {
+                            updateButton(trackName, 'play');
+                            updateProgress(trackName, 0);
+                        });
+                    }
+
+                    currentAudio.volume = 0.4;
+                    currentAudio.play();
+                    this.innerHTML = '<i class="fas fa-pause"></i>';
+                });
+            });
+
+            progressBars.forEach(bar => {
+                bar.addEventListener('click', function(e) {
+                    const trackName = this.dataset.track;
+                    if (currentAudio && currentTrack === trackName) {
+                        const rect = this.getBoundingClientRect();
+                        const percent = (e.clientX - rect.left) / rect.width;
+                        currentAudio.currentTime = percent * currentAudio.duration;
+                    }
+                });
+            });
+
+            function updateButton(trackName, state) {
+                const button = document.querySelector(`.play-btn[data-track="${trackName}"]`);
+                if (button) {
+                    button.innerHTML = state === 'play' ? 
+                        '<i class="fas fa-play"></i>' : 
+                        '<i class="fas fa-pause"></i>';
+                }
+            }
+
+            function updateProgress(trackName, percent) {
+                const bar = document.querySelector(`.progress-bar[data-track="${trackName}"] .progress-fill`);
+                if (bar) {
+                    bar.style.width = percent + '%';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
