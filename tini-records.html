@@ -70,15 +70,16 @@
         
         .demo-tracks {
             display: grid;
-            gap: 2.5rem;
-            max-width: 1000px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
             margin: 0 auto;
         }
         
         .demo-card {
             background: white;
             border-radius: 20px;
-            padding: 2rem;
+            padding: 1.5rem;
             box-shadow: 0 8px 30px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
         }
@@ -88,22 +89,30 @@
             box-shadow: 0 12px 40px rgba(0,0,0,0.15);
         }
         
+        @media (max-width: 768px) {
+            .demo-tracks {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+        
         .demo-header {
             display: flex;
             align-items: center;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
+            gap: 1rem;
+            margin-bottom: 1rem;
         }
         
         .demo-icon {
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             color: white;
+            flex-shrink: 0;
         }
         
         .demo-icon.tropical {
@@ -123,21 +132,22 @@
         }
         
         .demo-title h3 {
-            font-size: 1.8rem;
+            font-size: 1.3rem;
             color: var(--text-dark);
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.2rem;
         }
         
         .demo-title p {
             color: var(--text-light);
-            font-size: 0.95rem;
+            font-size: 0.85rem;
+            line-height: 1.3;
         }
         
         .demo-player {
             background: #f8f9fa;
             border-radius: 15px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
         }
         
         .player-controls {
@@ -184,8 +194,9 @@
         
         .demo-description {
             color: var(--text-light);
-            line-height: 1.8;
-            margin-bottom: 1rem;
+            line-height: 1.6;
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
         }
         
         .bts-section {
