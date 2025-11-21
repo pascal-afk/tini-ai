@@ -1,0 +1,54 @@
+<!-- 
+    TINI Podcast Overlay - Minimal Integration Version
+    
+    INTEGRATION INSTRUCTIONS:
+    1. Copy the HTML structure below into your page
+    2. Link to CSS: <link rel="stylesheet" href="podcast-overlay.css">
+    3. Link to JS: <script src="podcast-overlay.js"></script>
+    4. Update audio src to your hosted podcast file
+-->
+
+<!-- Podcast Trigger Button (place wherever you want) -->
+<button class="podcast-trigger" onclick="openPodcast()">
+    🎙️ Listen to: "Is TINI a Time Traveler?"
+</button>
+
+<!-- Podcast Overlay (place at end of body tag) -->
+<div class="podcast-overlay" id="podcastOverlay">
+    <div class="podcast-modal">
+        <!-- Close Button -->
+        <button class="close-btn" onclick="closePodcast()">×</button>
+
+        <!-- Header -->
+        <div class="podcast-header">
+            <h1 class="podcast-title">🎙️ Is TINI a Time Traveler?</h1>
+            <p class="podcast-subtitle">A Digital Soul Strategy Portrait</p>
+        </div>
+
+        <!-- Audio Player -->
+        <div class="audio-container">
+            <audio id="podcastAudio" controls>
+                <source src="podcast.m4a" type="audio/mp4">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <!-- Transcript Display -->
+        <div class="transcript-container">
+            <div class="transcript-box">
+                <p class="transcript-text" id="transcriptText">
+                    <span class="highlight">Transcription will appear here as the podcast plays...</span>
+                </p>
+            </div>
+        </div>
+
+        <!-- Info -->
+        <div class="info-section">
+            <p>Duration: ~11.5 minutes | Creator: @tini.aii | Series: The White Cap</p>
+        </div>
+    </div>
+</div>
+
+<!-- Required Stylesheets and Scripts -->
+<link rel="stylesheet" href="podcast-overlay.css">
+<script src="podcast-overlay.js"></script>

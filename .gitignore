@@ -27,3 +27,6 @@ Thumbs.db
 *.log
 logs/
 audio/processed/*.wav
+podcast.m4a
+*.m4a
+*.mp3
