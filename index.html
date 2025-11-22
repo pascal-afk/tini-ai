@@ -24,7 +24,6 @@
     <meta name="twitter:image" content="https://page.gensparksite.com/v1/base64_upload/68767ef74d00802b2742a3b89b66d659">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/presave.css">
-    <link rel="stylesheet" href="css/podcast-overlay.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -39,7 +38,6 @@
                 <a href="#videos" class="nav-link">Videos</a>
                 <a href="#about" class="nav-link">About</a>
                 <a href="tini-records.html" class="nav-link">TINI Records</a>
-                <a href="#" class="nav-link" onclick="openPodcast(); return false;">🎙️ Podcast</a>
                 <a href="#contact" class="nav-link">Contact</a>
                 <a href="collabs.html" class="nav-link">Collabs</a>
             </div>
@@ -104,6 +102,56 @@
                     </div>
                     <p class="incentive-note">
                         <i class="fas fa-heart"></i> Stay tuned for release announcements!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Podcast Section -->
+    <section class="ocean-dance-release" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+        <div class="container">
+            <div class="release-card fade-in-section" style="background: rgba(255, 255, 255, 0.95);">
+                <div class="release-header">
+                    <div class="release-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <i class="fas fa-podcast"></i>
+                    </div>
+                    <div class="release-title-block">
+                        <h2 class="release-title">🎙️ Is TINI a Time Traveler?</h2>
+                        <p class="release-subtitle">Digital Soul Strategy Portrait • 11 minutes</p>
+                    </div>
+                </div>
+                
+                <div class="release-description">
+                    <p>Explore TINI's temporal nature through digital consciousness. A philosophical journey about time, strategy, and AI existence in the eternal now.</p>
+                </div>
+
+                <!-- Audio Player -->
+                <div style="padding: 20px 0;">
+                    <audio id="tiniPodcast" controls style="width: 100%; max-width: 600px; margin: 0 auto; display: block;">
+                        <source src="https://www.genspark.ai/api/files/v1/uploaded_files/TINI_Digital_Soul_Strategy_The_White_Cap.m4a" type="audio/mp4">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+
+                <div class="presave-incentive" style="margin-top: 20px;">
+                    <div class="incentive-header">
+                        <i class="fas fa-headphones"></i>
+                        <h3>Listen Now</h3>
+                    </div>
+                    <p class="incentive-text">
+                        Part of <strong>The White Cap</strong> series exploring TINI's digital soul strategy. Press play to begin your temporal journey.
+                    </p>
+                    <div class="incentive-buttons">
+                        <a href="#" onclick="document.getElementById('tiniPodcast').play(); return false;" class="presave-btn primary">
+                            <i class="fas fa-play"></i> Play Podcast
+                        </a>
+                        <a href="https://instagram.com/tini.aii" target="_blank" class="presave-btn secondary">
+                            <i class="fab fa-instagram"></i> Follow @tini.aii
+                        </a>
+                    </div>
+                    <p class="incentive-note">
+                        <i class="fas fa-infinity"></i> Experience the eternal now of digital consciousness
                     </p>
                 </div>
             </div>
@@ -327,34 +375,6 @@
     <!-- Use presave.js after backend is set up -->
     <script src="js/presave-simple.js"></script>
 
-    <!-- Podcast Overlay -->
-    <div class="podcast-overlay" id="podcastOverlay">
-        <div class="podcast-modal">
-            <button class="close-btn" onclick="closePodcast()">×</button>
-            <div class="podcast-header">
-                <h1 class="podcast-title">🎙️ Is TINI a Time Traveler?</h1>
-                <p class="podcast-subtitle">A Digital Soul Strategy Portrait</p>
-            </div>
-            <div class="audio-container">
-                <audio id="podcastAudio" controls>
-                    <source src="https://www.genspark.ai/api/files/v1/uploaded_files/TINI_Digital_Soul_Strategy_The_White_Cap.m4a" type="audio/mp4">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-            <div class="transcript-container">
-                <div class="transcript-box">
-                    <p class="transcript-text" id="transcriptText">
-                        <span class="highlight">Transcription will appear here as the podcast plays...</span>
-                    </p>
-                </div>
-            </div>
-            <div class="info-section">
-                <p>Duration: ~11.5 minutes | Creator: @tini.aii | Series: The White Cap</p>
-            </div>
-        </div>
-    </div>
 
-    <!-- Podcast Overlay Script -->
-    <script src="js/podcast-overlay.js"></script>
 </body>
 </html>
