@@ -96,6 +96,15 @@ html {
     width: 100%;
 }
 
+/* Hero v2 styles - cache bust */
+.hero-v2 .hero-content-new {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
 /* Fade-in Animations for Scroll */
 .fade-in-section {
     opacity: 0;
