@@ -30,3 +30,4 @@ audio/processed/*.wav
 podcast.m4a
 *.m4a
 *.mp3
+r2-proxy-worker.js
