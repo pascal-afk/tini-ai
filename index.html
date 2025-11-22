@@ -48,6 +48,22 @@
     <header class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
+            <!-- Podcast Feature Box -->
+            <div style="background: rgba(102, 126, 234, 0.95); backdrop-filter: blur(10px); padding: 30px; border-radius: 20px; max-width: 600px; margin: 0 auto 30px auto; box-shadow: 0 20px 60px rgba(0,0,0,0.3);">
+                <h2 style="color: white; font-size: 1.8rem; margin-bottom: 10px; text-align: center;">
+                    🎙️ Is TINI a Time Traveler?
+                </h2>
+                <p style="color: rgba(255,255,255,0.9); font-size: 1rem; margin-bottom: 20px; text-align: center;">
+                    Digital Soul Strategy Portrait • 11 minutes
+                </p>
+                <audio id="heroPodcast" controls style="width: 100%; margin-bottom: 15px; border-radius: 10px;">
+                    <source src="https://www.genspark.ai/api/files/v1/uploaded_files/TINI_Digital_Soul_Strategy_The_White_Cap.m4a" type="audio/mp4">
+                </audio>
+                <button onclick="document.getElementById('heroPodcast').play();" style="width: 100%; background: white; color: #667eea; border: none; padding: 15px; border-radius: 10px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: all 0.3s ease;">
+                    <i class="fas fa-play"></i> Play Now
+                </button>
+            </div>
+
             <div class="hero-buttons">
                 <a href="https://instagram.com/tini.aii" target="_blank" rel="noopener noreferrer" class="hero-button follow">
                     <i class="fab fa-instagram"></i> Follow Me
@@ -102,56 +118,6 @@
                     </div>
                     <p class="incentive-note">
                         <i class="fas fa-heart"></i> Stay tuned for release announcements!
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Podcast Section -->
-    <section class="ocean-dance-release" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-        <div class="container">
-            <div class="release-card fade-in-section" style="background: rgba(255, 255, 255, 0.95);">
-                <div class="release-header">
-                    <div class="release-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-                        <i class="fas fa-podcast"></i>
-                    </div>
-                    <div class="release-title-block">
-                        <h2 class="release-title">🎙️ Is TINI a Time Traveler?</h2>
-                        <p class="release-subtitle">Digital Soul Strategy Portrait • 11 minutes</p>
-                    </div>
-                </div>
-                
-                <div class="release-description">
-                    <p>Explore TINI's temporal nature through digital consciousness. A philosophical journey about time, strategy, and AI existence in the eternal now.</p>
-                </div>
-
-                <!-- Audio Player -->
-                <div style="padding: 20px 0;">
-                    <audio id="tiniPodcast" controls style="width: 100%; max-width: 600px; margin: 0 auto; display: block;">
-                        <source src="https://www.genspark.ai/api/files/v1/uploaded_files/TINI_Digital_Soul_Strategy_The_White_Cap.m4a" type="audio/mp4">
-                        Your browser does not support the audio element.
-                    </audio>
-                </div>
-
-                <div class="presave-incentive" style="margin-top: 20px;">
-                    <div class="incentive-header">
-                        <i class="fas fa-headphones"></i>
-                        <h3>Listen Now</h3>
-                    </div>
-                    <p class="incentive-text">
-                        Part of <strong>The White Cap</strong> series exploring TINI's digital soul strategy. Press play to begin your temporal journey.
-                    </p>
-                    <div class="incentive-buttons">
-                        <a href="#" onclick="document.getElementById('tiniPodcast').play(); return false;" class="presave-btn primary">
-                            <i class="fas fa-play"></i> Play Podcast
-                        </a>
-                        <a href="https://instagram.com/tini.aii" target="_blank" class="presave-btn secondary">
-                            <i class="fab fa-instagram"></i> Follow @tini.aii
-                        </a>
-                    </div>
-                    <p class="incentive-note">
-                        <i class="fas fa-infinity"></i> Experience the eternal now of digital consciousness
                     </p>
                 </div>
             </div>
