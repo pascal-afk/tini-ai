@@ -1244,3 +1244,25 @@ body {
         justify-content: center;
     }
 }
+/* Hero Layout Overrides for Podcast Player */
+@media (max-width: 768px) {
+    .hero-content > div[style*="position: absolute"] {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        max-width: 100% !important;
+        margin-bottom: 15px !important;
+    }
+    
+    .hero-content > div:first-child {
+        /* Buttons Stack */
+        flex-direction: column !important;
+        gap: 10px !important;
+    }
+    
+    .hero-content > div:last-child {
+        /* Podcast Player Full Width */
+        max-width: 100% !important;
+    }
+}
