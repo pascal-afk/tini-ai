@@ -10,6 +10,16 @@ wrangler.toml
 audio/ocean-dance-radio-edit-MASTER.wav
 audio/*.wav
 
+# CRITICAL: Voice samples and training data (PRIVATE - never commit!)
+/uploaded_files/
+*.mp4
+*Voice*Sample*
+*voice*sample*
+TINI_Voice_*
+11LABS_*
+voice_samples/
+voice-samples/
+
 # Backup and temporary files
 *.backup
 *.bak
